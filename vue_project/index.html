@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue.js 찍먹</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<!--
+    20220119  - Vue.js 맛보기 - 
+    code Scalpter 유튜브
+-->
+
+<body>
+    <div id="app">
+        <h1>hello {{ userName }}!!</h1>
+        <p>{{ frameworks }}</p>
+        <input type="text" v-model="userName">
+        <p v-if="userName.length > 9">user name length is too long</p>
+        <!-- <button v-on:click='addItem'>addItem</button> -->
+        <button @click='addItem'>addItem</button>
+        <button v-on:click='popItem'>removeItem</button>
+        <button @click='fetchTodos'>fetchTodos</button>
+        <ul>
+            <li v-for="(todo, index) in todos">
+                {{ todo.completed }}
+                <button @click = "completedTodo(index)">완료</button>
+            </li>
+        </ul>
+        <h2 v-bind:class="{many: completedTodos > 5}">완료한 todo는 총:{{ completedTodos }}개 입니다</h2>
+    </div>
+    <script>
+        // 인스턴스 실행, #app 내 내용을 관리
+        const app = new Vue({
+            el: "#app",
+            data: {
+                userName: "레뷰스타라이트",
+                frameworks: ["카렌", "히카리", "마히루"],
+                todos: []
+            },
+            computed: {
+                completedTodos() {
+                    return this.todos.filter(todo => todo.completed === true).length
+                }
+            },
+            methods: {
+                addItem() {
+                    // vue 안에 들어있는 프로퍼티에 접근
+                    console.log(this.userName)
+                    this.frameworks.push(this.userName)
+                },
+                popItem() {
+                    this.frameworks.pop()
+                },
+                fetchTodos() {
+                    fetch('https://jsonplaceholder.typicode.com/todos?_start=0&_end=20')
+                        .then(res => res.json())
+                        .then(data => this.todos = data)
+                },
+
+                completedTodo(index) {
+                    this.todos[index].completed = true;
+                }
+            }
+        });
+    </script>
+    <style>
+        .many{
+            color: red;
+        }
+    </style>
+</body>
+
+</html>
