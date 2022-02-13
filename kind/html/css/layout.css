@@ -1,0 +1,134 @@
+/* 공통 css - layout*/
+section{background-color: #F5F6F7;}
+.container{max-width: 1040px; margin: 0 auto; min-width: 768px; padding: 60px 20px 65px; }
+a.link{text-decoration: underline; color: #2f76fa;}
+span.bar{width: 1px; height: 20px; background-color: #eaeaea; margin: 0 20px;}
+.content_wrap{margin-top: 40px; padding: 40px; background-color: #fff; border-radius: 20px; box-shadow: 0px 2px 10px #42424226;}
+section.bg_white{background-color: #fff;}
+
+/* 버튼 */
+/* .btn{width: 80px; height: 36px; background-color: #19449a; color: #fff; display: inline-block; border-radius: 6px; font-size: 16px;}
+.btn.ico2{background-color: #fff; color: #999; border: 1px solid #DFDFDF;}
+.btn.ico3{background-color: #fff; color: #19449a; border: 1px solid #19449a;}
+.btn.ico4{background-color: #F49E14;}
+.btn.btn_round{width: fit-content; height: 46px; border-radius: 23px; border: 1px solid #B1B1AF; background-color: #fff; color: #ABABAB; padding: 13px 15px; font-size: 14px;}
+.btn.btn_round.on{background-color: #E7ECF5; color: #19449A; border: 1px solid #19449A;}
+.btn.btn_delete{all: unset; cursor: pointer;}
+.btn.btn_delete i{width: 15px; height: 15px; background-image: url(../images/common/file_delete_ico.png); background-repeat: no-repeat; vertical-align: bottom;} */
+
+
+/* 공통 title */
+.title_area{height: 54px; font-size: 36px; font-weight: 500; letter-spacing: -2px;}
+.mTitle_area{font-size: 24px; font-weight: 500; margin: 40px 0 20px; letter-spacing: -1.2px; line-height: 36px;} 
+.mTitle_area:first-child{font-size: 24px; font-weight: 500; margin-top: 0;} 
+.mTitle_area.btn_title{display: flex; justify-content: space-between; align-items: center;} 
+.mTitle_area .btn_area{width: fit-content; margin-top: 0;}
+.mTitle_area .btn_area .btn{width: 100px; height: 46px;}
+.mTitle_area .date{padding: 12px 30px; background-color: #F5F6F7; font-size: 14px; color: #19449A; width: fit-content; height: 44px; border-radius: 22px; line-height: 22px; font-weight: 400; letter-spacing: -0.7px;}
+
+/* header ----- */
+header .inner{padding: 22px 20px 18px; justify-content: space-between; align-items: center; max-width: 1640px; margin: auto; display: flex; min-width: 768px;}
+header .inner .logo_area{background: url(../images/common/header_logo.png); background-repeat: no-repeat;}
+header .inner .logo_area a{display: inline-block; width: 262px; height: 30px;}
+header .inner .right-area{display: flex; align-items: center;}
+header .inner .right-area .date-box{ height: 21px; margin-right: 20px; color: #19449A; background: url(../images/common/header_calendar.png); background-repeat: no-repeat; background-position: 0 center; padding-left: 28px; letter-spacing: -1px;}
+header .inner .right-area .date-box a{letter-spacing: -0.8px;}
+header .inner .right-area .alarm-box{width: 38px; height: 38px; margin-right: 24px; background: url(../images/common/header_alarm.png); background-repeat: no-repeat; background-position: 0 0; position: relative;}
+header .inner .right-area .alarm-box .alarm.on::after{content: ''; display: block; width: 5px; height: 5px; background-color: #19449a; border-radius: 10px; position: absolute; top: 5px; right: 5px;}
+header .inner .right-area .memberInfo{width: 130px; height: 40px; border-radius: 40px; background-color: #F2F4F6; text-align: center; line-height: 40px; font-weight: 400;}
+header .inner .logout_btn{width: 86px; height: 21px; background: url(../images/common/logout.png); background-repeat: no-repeat; background-position: 0 center; padding-left: 20px; font-size: 16px; color: #B1B1AF;}
+
+header .menu_gnb{height: 70px; border-bottom: 1px solid #EAEAEA;}
+header .menu_gnb .inner{padding: 12px 20px; justify-content: space-between; align-items: center; max-width: 1640px; margin: auto; display: flex; min-width: 768px;}
+header .menu_gnb .inner .menu_list{display: flex; }
+header .menu_gnb .inner .menu_list .menu{margin-right: 40px; font-size: 20px;}
+header .menu_gnb .inner .menu_list .menu.on{font-weight: 500; color: #19449A;}
+header .menu_gnb .inner .inner_right{width: 358px; display: flex; justify-content: space-between;}
+header .menu_gnb .inner .input_area.add{position: relative; width: fit-content;}
+header .menu_gnb .inner .input_area.add input{width: 300px; background-color: #F7F7F7; border-radius: 23px; border: 1px solid #ddd; color: #999999; font-weight: 200;}
+header .menu_gnb .inner .input_area.add .search_btn{position: absolute; right: 23px; top: calc(50% - 9px); width: 18px; height: 18px; background: url(../images/common/menuSearch_ico.png); font-size: 0; background-repeat: no-repeat; background-size: cover;}
+header .menu_gnb .inner .cart_btn{width: 46px; height: 46px; background: url(../images/common/menuCart_ico.png); background-repeat: no-repeat; display: block; float: right;}
+
+/* input ----- */
+/* check */
+.chk_area{display: inline-block; margin-right: 14px; position: relative;}
+.chk_area input{ position: absolute; right: 0; opacity: 0;}
+.chk_area label{vertical-align: middle;font-weight: 200;letter-spacing: -1px;height: 22px;display: inline-block;font-size: 16px;} 
+.chk_area label .ico_chk{background: url(../images/common/chk_off.png); width: 18px; height: 18px; vertical-align: inherit; margin: -4px 5px 0 0; background-repeat: no-repeat; background-position: 0 center;}
+.chk_area input:checked + label .ico_chk{background: url(../images/common/chk_on.png);  background-repeat: no-repeat; background-position: 0 center;}
+
+
+/* radio */
+.radio_area{display: inline-block;margin-right: 14px;position: relative;font-size: 0;vertical-align: text-top;}
+.radio_area input{ position: absolute; right: 0; opacity: 0;}
+.radio_area label{ vertical-align: middle; letter-spacing: -1px; font-weight: 200; font-size: 16px; display: inline-block; height: 22px;} 
+.radio_area label .ico_radio{background: url(../images/common/radio_off.png); width: 18px; height: 18px; vertical-align: inherit; margin: -4px 5px 0 0;}
+.radio_area input:checked + label .ico_radio{background: url(../images/common/radio_on.png);  background-repeat: no-repeat; background-position: 0 center;}
+
+/* input */
+input[type=text]{padding-left: 15px; height: 46px; border-radius: 6px; border: 1px solid #DDDDDD; color: #999999; background-color: #fff; letter-spacing: -0.7px; font-size: 14px; font-weight: 200;}
+input[type=text]:focus{border: 1px solid #19449A; background-color: #F6F7FB; color:#19449A; font-weight: 400;}
+input.ico_date{background: url(../images/common/data_picker.png); background-repeat: no-repeat; background-position: top 50% right 10px; color: #999999; background-color: #fff; letter-spacing: -1px;}
+.input_area.add::after{content: ''; display: block; clear: both;}
+.input_area.add input{width: calc(100% - 110px); float: left;}
+.input_area.add .btn{width: 100px; height: 46px; color: #fff; line-height: 46px; margin-left: 10px; float: left; background-color: #19449A; color: #fff; border-radius: 6px; font-weight: 200;}
+
+textarea{border-radius: 6px;}
+textarea:focus{border: 1px solid #19449A; background-color: #F6F7FB; color:#19449A; font-weight: 400;}
+
+.file_area {position: relative; display: flex;}
+.file_area input{width: 237px; margin-right: 10px; border-radius: 3px;}
+.file_area input[type=file]{position: absolute; top: 0; bottom: 0; opacity: 0; width:  237px; height: 46px;}
+.file_area .btn{width: 100px; line-height: 46px; height: 46px; border-radius: 3px; font-size: 14px; background-color: #19449A; color: #fff;}
+select{width: 150px; height: 46px; color: #999999; font-size: 14px; background: url(../images/common/select_arrow.png); background-repeat: no-repeat; background-position: top 50% right 10px; border: 1px solid #DDDDDD; border-radius: 3px; background-color: #fff; font-weight: 200;}  
+select:focus{border: 1px solid #19449A; background-color: #F6F7FB; color:#19449A; font-weight: 400;}
+.file_area span{line-height: 46px; margin-left: 20px; font-size: 14px; color: #666; letter-spacing: -0.8px;}
+.file_list{margin-top: 10px;}
+.file_list::after{content: ''; display: block; clear: both;}
+.file_list li{width: fit-content; display: inline-block; float: left; padding: 8px 20px; background-color: #eee; font-size: 14px; border-radius: 23px; margin: 0 10px 10px 0;}
+.file_list li::after{content: ' '; display: block; clear: both;}
+.file_list li span{float: left;}
+.file_list li .btn_delete{margin-left: 8px; float: left;}
+.file_list li .btn.btn_delete i{width: 15px; height: 15px; background-image: url(../images/common/file_delete_ico.png); background-repeat: no-repeat; vertical-align: bottom;}
+
+table input[type=text]{padding-left: 15px; height: 36px; border-radius: 3px;}
+
+
+/* input colBox */
+.input_area.colBox{display: flex; justify-content: space-between;}
+.input_area.colBox .col2{width: calc(50% - 15px);}
+.input_area.colBox .col-3{width: calc(100% / 3 - 30px);}
+
+/* style */
+.main_color{color: #19449a;}
+.c_grey{color:#999;}
+.c_black{color:#222;}
+.txt_bold{font-weight: 500;}
+
+/* modal popup */
+/* 공통 */
+#mask, .modal_cnt{display: none; position: fixed; z-index:200;}
+#mask {top: 0; left: 0;width: 100%; height: 100%; background: rgba(0,0,0,0.5);}
+.modal_cnt {width: 1000px; min-height: 250px; max-height: 90%;padding: 20px 30px;background-color: #fff;  box-shadow: 0px 2px 10px #00000029; border-radius: 20px;}
+.modal_cnt.style02 {width: 500px;}
+.modal_cnt::-webkit-scrollbar-track{display: none; border: 1px solid #fff; opacity: 0;}
+.modal_cnt::-webkit-scrollbar{width: 8px; background-color: #f8f8f8; border-radius: 10px;}
+.modal_cnt::-webkit-scrollbar-thumb{border-radius: 8px; background-color: #ccc;}
+
+.modal_cnt .modal_header{height: 48px; position: relative; text-align: center;}
+.modal_cnt .close_btn{width: 15px; height: 15px; background: url(../images/common/popClose_ico.png); background-repeat: no-repeat; position: absolute; top: 5px; right: 0;}
+.modal_cnt .pop_tit{font-size: 20px; line-height: 20px; font-weight: 500; display: block;}
+.modal_cnt .modal_inner .btn_area{margin: 20px 0 10px; text-align: right;}
+.modal_cnt .modal_inner .btn_area .btn{width: 100px; height: 46px; background-color: #19449A; color: #fff; line-height: 46px; border-radius: 6px; font-weight: 200;}
+
+@media only screen and (max-width: 1024px){
+    header .inner .right-area .date-box{margin-right: 10px; font-size: 14px;}
+    header .inner .right-area .alarm-box{margin-right: 6px;}
+    header span.bar{margin: 0 10px;}
+    header .inner .right-area .memberInfo{font-size: 14px; width: 100px; height: 30px; letter-spacing: -1px; line-height: 30px;}
+    header .inner .logout_btn{font-size: 15px;}
+}
+
+
+
+
