@@ -1,5 +1,6 @@
 
 /* login ----- */
+/* .page-login{position: relative; width: 100%; height: 100vh; background-image: url(../images/sub/login_bg.png); background-repeat: no-repeat; background-position: 0 0; background-size: cover;} */
 .page-login{position: relative; width: 100%; height: 100vh; background-image: url(../images/sub/login_bg.png); background-repeat: no-repeat; background-position: 0 0; background-size: cover;}
 .page-login .login-wrap{position: absolute; left: 50%;top: 50%;transform: translate(-50%, -50%);text-align: center; width: 640px; height: 500px; padding: 70px 0; background-color: #ffffffd9; border-radius: 30px; box-shadow: 0px 2px 21px #42424226;}  
 .page-login .login-wrap .title_area{width: 312px; height: 35px; margin: auto; background: url(../images/sub/login_logo.png); background-repeat: no-repeat; padding-top: 0;}
@@ -94,7 +95,7 @@ i.icon_dl{background: url(../images/common/download_btn.png); width: 14px; heigh
 .step_wrap ul li.step_box.ico3 .step-icon{background-image: url(../images/common/step03.png);}
 .step_wrap ul li.step_box.ico3.on .step-icon{background-image: url(../images/common/step03_on.png);}
 .step_wrap ul li.step_box.ico4 .step-icon{background-image: url(../images/common/step04.png);}
-.step_wrap ul li.step_box.ico4.on .step-icon{background-image: url(../images/common/step04_on.png);}
+/* .step_wrap ul li.step_box.ico4.on .step-icon{background-image: url(../images/common/step04_on.png);} */
 
 
 .page-contract .content_wrap .term_area{margin-top: 10px; }
@@ -471,7 +472,7 @@ background-size: cover;}
 .modal_cnt.style02 .modal_inner .sign_list li:nth-child(4n){margin-right: 0;}
 .modal_cnt.style02 .modal_inner .sign_list li .sign_img{width: 100px; height: 100px; background-repeat: no-repeat; background-size: cover; border: 1px solid #EAEAEA; border-radius: 6px;} 
 .modal_cnt.style02 .modal_inner .sign_list li .del_btn{width: 20px; height: 20px; background: url(../images/common/signDel_btn.png); margin-top: 12px;}
-.modal_cnt.style02 .modal_inner .btn_area{padding: 20px 30px 30px; margin: 0; border-top: 1px solid #EAEAEA; linear-gradient(180deg, #FFFFFF00 0%, #00000080 100%)}
+/* .modal_cnt.style02 .modal_inner .btn_area{padding: 20px 30px 30px; margin: 0; border-top: 1px solid #EAEAEA; linear-gradient(180deg, #FFFFFF00 0%, #00000080 100%);} */
 
 /* 팝업 - 장바구니 */
 .modal_cnt.style02 .modal_inner .cnt_area{ height: 400px; overflow-y: scroll;}
