@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <!-- 20220214 월 -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>41강. 문서객체 조작하기</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // #1. 글자 조작하기 
+            let header1 = document.querySelector('#textContent');
+            let header2 = document.querySelector('#innerHTML');
+            // 조작!
+            // 값을 추출한다
+            console.log(header1.textContent);
+            console.log(header2.innerHTML);
+            // 값을 넣는다
+            header1.textContent = '원하는<br>문자열';
+            header2.innerHTML = '원하는<br>문자열'; /* 보안적으로 문제가 될 수 있음*/
+
+            //# 2. 속성 조작하기
+            //조작
+            const img = document.querySelector('img');
+
+            // 값을 넣는 행위 (속성, 값)
+            // img.setAttribute('src', 'http://placekitten.com/200/200') /* 사용자정의 속성, 표준 속성이 아닐 떼 */
+            // getAtt            img.src = "http://placekitten.com/300/300";
+            // * 표준속성, 사용자 정의 속성에 대해
+
+            // 값을 추출 행위
+            console.log(img.src);
+
+            // #3. 스타일 조작
+            const divs = document .querySelectorAll('div');
+            divs.forEach((div, key) => {
+                div.style.backgroundColor = `rgb(${key * 22.5}, ${key * 22.5}, ${key * 22.5})`
+                div.style.height = '10px';
+                // div.style['background-color']
+                console.log(div.style.height);
+            })
+
+
+
+
+        })
+    </script>
+</head>
+
+<body>
+    <!-- 1. 글자 조작하기 -->
+    <h1 id="textContent">textContent 속성 기존 문자열</h1>
+    <h1 id="innerHTML">innerHtml 속성 기존 문자열</h1>
+
+    <!-- 2. 속성 조작하기 -->
+    <img src="" alt="">
+
+    <!-- 3. -->
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+
+</body>
+
+</html>

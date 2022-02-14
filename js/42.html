@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- 20220215 (화) -->
+    <!-- 
+        #1. 문서객체 생성
+            * setTimeout
+            * parentNode.removeChild 와 body.removeChild
+            
+        #2. 문서 객체 이동    
+            * 이동 반복 구현 2가지 - 타이머 관련 태크닉 2가지 
+
+            #2-1. 쓰레드풀 큐(재귀적) 사용
+            : 서로 호출
+
+            #2-2. 
+            : 배열, 나머지. setTimeOut
+    -->
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>42강. 문서 객체 생성, 제거, 이동</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // #1. 문서객체 생성하기
+            const header = document.createElement('h1');
+            header.textContent = 'createElement로 만든 태그';
+            header.style.color = 'red';
+
+            // 만든 요소를 출력
+            const body = document.querySelector('body');
+            body.appendChild(header)
+            
+            // 만든 요소를 제거
+            setTimeout(() => {
+                //body.removeChild(header);
+                header.parentNode.removeChild(header);
+            }, 2000)
+
+            //  #2. 문서객체 이동하기
+                const header2 = document.createElement('h2');
+                header2.textContent = '안녕하세요';
+
+                const first = document.querySelector('.first');
+                const second = document.querySelector('.second');
+                array = [
+                    first,
+                    second
+                ]
+                // first.appendChild(header2);
+
+                // #2-1. 타이머 관련 태크닉1
+                // const toFirst = () => {
+                //     first.appendChild(header2);
+                //     setTimeout(toSecond, 1000)
+                // }
+                // const toSecond = () => {
+                //     second.appendChild(header2);
+                //     setTimeout(toFirst, 1000)
+                // }
+                
+                // toFirst();                
+                
+                // #2-2. 타이머 관련 태크닉1
+                let 카운터 = 0
+                const fun = () => {
+                    array[카운터 % 2].appendChild(header2);
+                    카운터++;
+                }
+                setInterval(fun, 1000)
+
+            
+        })
+    </script>
+</head>
+<body>
+    <div class="first">
+        <h1>첫번째 div 태그 내부</h1>
+    </div>
+    <hr>
+    <div class="second">
+        <h1>두번째 div 태그 내부</h1>
+    </div>
+</body>
+</html>

@@ -9,7 +9,7 @@
                         <dl>
                             <dt>구분</dt>
                             <dd>
-                                <div class="chk_area">
+                                <div class="chk_area">  
                                     <input type="checkbox" name="ch01" id="ch01_1">
                                     <label for="ch01_1"><i class="ico_chk"></i>전체</label>
                                 </div>
