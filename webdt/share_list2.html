@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <title>디지털교과서 웹 뷰어</title>
+    <meta name="Description" content="다운로드 없이 온라인 이용 가능한 디지털교과서(초·중 사회/과학/영어, 고 영어) 및 교과서 PDF 제공" />
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <meta http-equiv="Content-Style-Type" content="text/css">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <!-- S : mobile -->
+    <!-- meta name="viewport" content="width=device-width,viewport-fit=cover,initial-scale=1,user-scalable=no" -->
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=3.0, user-scalable=yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta property="og:image" content="">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="628">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#">
+    <meta name="msapplication-navbutton-color" content="#7c0019">
+    <meta name="apple-mobile-wep-app-status-bar-style" content="#7c0019">
+    <!-- link rel="icon" href="./resources/images/favicon.ico">
+  <link rel="short icon" href="./resources/images/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="./resources/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="./resources/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="./resources/images/favicon.ico">
+  <link rel="mask-icon" href="./resources/images/favicon.ico" color="#5bbad5">
+
+
+  <style>
+
+  </style>
+  <link rel="icon" href="/favicon.ico">
+  <link rel="stylesheet" href="./resources/css/bundle_.min.css" -->
+    <link rel="stylesheet" href="./resources/css/style.css">
+    <link rel="stylesheet" href="./resources/css/common/header.css">
+    <link rel="stylesheet" href="./resources/css/section.css">
+    <link rel="stylesheet" href="./resources/css/popup.css">
+    <link rel="stylesheet" href="./resources/css/slick.css">
+    <link rel="stylesheet" href="./resources/css/font.css">
+
+    <link rel="stylesheet" href="./resources/css/attendance.css">
+    <link rel="stylesheet" href="./resources/css/classroom.css"> <!-- 2021-08-05 : 클래스(모둠) 추가 -->
+    <link rel="stylesheet" href="./resources/css/sub01.css">
+    <!-- 2021-08-05 : 클래스(모둠) 추가 -->
+    <style>
+        header .menu .profile {
+            background-color: #245686;
+            display: flex;
+            color: #fff;
+            padding-top: 45px;
+            padding-bottom: 35px;
+            padding-right: 25px;
+            padding-left: 10px;
+
+        }
+
+        header .menu .profile .logout {
+            position: absolute;
+            top: 82px;
+            right: 20px;
+            border: 1px solid #FFF;
+            color: #FFF;
+            border-radius: 3px;
+            font-family: Noto Sans KR, Apple SD Gothic Neo, sans-serif;
+        }
+
+        header .menu .profile .modify {
+            position: absolute;
+            top: 52px;
+            right: 20px;
+            border: 1px solid #FFF;
+            color: #FFF;
+            border-radius: 3px;
+            width: 74.7188px;
+            font-family: Noto Sans KR, Apple SD Gothic Neo, sans-serif;
+        }
+
+        #wedorang_community_list {
+            width: 100%
+        }
+
+        .wedorang_community_file_wrap {
+            display: none;
+            width: 100%
+        }
+
+        #wedorang_community_list .default {
+            display: none
+        }
+
+        #wedorang_community_fileList .off {
+            display: none
+        }
+
+        #fileAdd {
+            display: none
+        }
+
+        #wedorang_community_fileList .off {
+            display: none
+        }
+
+        #wedorang_file_more {
+            position: fixed;
+            bottom: 0;
+            width: calc(100% - 60px)
+        }
+
+        .viewer-popup__title-wrap {
+            height: 85px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+            color: #222;
+            border-bottom: 1px solid #204d79
+        }
+
+        .viewer-popup__title-wrap .viewer-popup__title {
+            display: flex;
+            align-items: center
+        }
+
+        .viewer-popup__title-wrap .viewer-popup__title img {
+            width: 30px;
+            margin-right: 20px
+        }
+
+        .pc .viewer-popup__title-wrap .viewer-popup__title img:hover {
+            opacity: 1
+        }
+
+        .viewer-popup__title-wrap .viewer-popup__title span {
+            color: #222;
+            font-size: 20px
+        }
+
+        .viewer-popup__title-wrap button {
+            background-color: transparent
+        }
+
+        .viewer-popup__list-title {
+            font-size: 16px;
+            color: #666;
+            background-color: #f4f4f4;
+            display: flex;
+            margin-bottom: 10px
+        }
+
+        .viewer-popup__list-title>div {
+            border: 1px solid #dbdbdb;
+            border-top: 0;
+            border-right: 0;
+            height: 50px;
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            text-align: center
+        }
+
+        .viewer-popup__list-title>div.on {
+            color: #245686;
+            background-color: #fff;
+            border: 0
+        }
+
+        .list-menu__textbook-list>ul>li {
+            border-bottom: 1px dashed #dbdbdb;
+            margin: 0 30px;
+            padding: 12px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            flex-wrap: wrap
+        }
+
+        .folder-view-modal .viewer-popup__title-wrap+div,
+        .wedo-share-modal .viewer-popup__title-wrap+div {
+            display: flex;
+            flex-wrap: wrap
+        }
+
+        .folder-view-modal .wedo-share-list,
+        .wedo-share-modal .wedo-share-list {
+            max-width: 250px;
+            width: 40%;
+            background: #f4f4f4;
+            height: 100vh
+        }
+
+        .folder-view-modal .wedo-share-list ul,
+        .wedo-share-modal .wedo-share-list ul {
+            overflow-y: scroll;
+            -ms-overflow-style: none;
+            height: calc(100vh - 170px)
+        }
+
+        .folder-view-modal .wedo-share-list ul::-webkit-scrollbar,
+        .wedo-share-modal .wedo-share-list ul::-webkit-scrollbar {
+            display: none
+        }
+
+        .wedorang_community_file_wrap {
+            display: none
+        }
+
+        .wedo-share-modal .wedo-share-contents {
+            flex: 1
+        }
+
+        .wedo-share-modal .wedo-share-list li {
+            color: #666;
+            background-color: #f4f4f4;
+            font-weight: 600;
+            border-left: 1px solid #dbdbdb;
+            border-bottom: 1px solid #dbdbdb;
+            display: flex;
+            align-items: center;
+            word-break: break-all;
+            min-height: 50px;
+            height: auto;
+            padding: 10px 15px
+        }
+
+        .wedo-share-modal .wedo-share-list li a,
+        .wedo-share-modal .wedo-share-list li span {
+            width: 100%
+        }
+
+        .pc .wedo-share-modal .wedo-share-list li:hover {
+            color: #fb8627
+        }
+
+        .wedo-share-modal .wedo-share-list li.on {
+            color: #245686;
+            background-color: #fff;
+            border-bottom: 1px solid #dbdbdb
+        }
+
+        .wedo-share-modal .wedo-share-contents {
+            padding: 50px;
+            padding-bottom: 300px;
+        }
+
+        .wedo-share-modal .wedo-share-contents ul {
+            display: flex;
+            flex-wrap: wrap
+        }
+
+        .wedo-share-modal .wedo-share-contents:not(.wedorang_community_file_wrap) ul li {
+            margin: 0 1%;
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 45px;
+            text-align: center;
+            display: inline-block
+        }
+
+        .pc .wedo-share-modal .wedo-share-contents:not(.wedorang_community_file_wrap) ul li .name:hover {
+            color: #fb8627
+        }
+
+        .wedo-share-modal .wedo-share-contents ul li .folder-image {
+            margin-bottom: 10px;
+            cursor: pointer
+        }
+
+        .pc .wedo-share-modal .wedo-share-contents ul li .folder-image:hover {
+            opacity: .5
+        }
+
+        .favorite-add-on {
+            background-color: orange;
+            color: #fff
+        }
+
+        .favorite-add-on i.star {
+            background-image: url(../images/icons/viewer/white-star.png);
+            background-size: 14px
+        }
+
+        .help-modal .version {
+            color: #999;
+            font-size: 12px;
+            margin-right: 10px
+        }
+
+        .help-modal-contents {
+            padding: 0 30px;
+            overflow-y: scroll;
+            overflow-x: hidden;
+            height: calc(100% - 85px)
+        }
+
+        .help-modal-contents .title {
+            margin: 30px 0
+        }
+
+        .help-modal-contents table {
+            border-top: 1px solid #2e6ca9;
+            width: 100%
+        }
+
+        .help-modal-contents th {
+            background-color: #eef7fd;
+            color: #245687;
+            font-size: 14px;
+            border-bottom: 1px solid #dbdbdb
+        }
+
+        .help-modal-contents td,
+        .help-modal-contents th {
+            font-size: 14px;
+            padding: 12px 0;
+            text-align: center
+        }
+
+        .help-modal-contents td {
+            color: #555;
+            border-bottom: 1px dashed #dbdbdb;
+            word-break: keep-all
+        }
+
+        .help-modal .icon {
+            width: 110px;
+            border-right: 1px solid #dbdbdb
+        }
+
+        .help-modal .icon-name {
+            width: 110px;
+            border-right: 1px solid #dbdbdb
+        }
+
+        .help-modal td.function {
+            text-align: left;
+            padding-left: 10px
+        }
+
+        .help-modal .icon img {
+            width: 30px
+        }
+
+        .wedorang_community_file_wrap.wedo-share-contents {
+            padding: 0 30px;
+            display: flex;
+            flex: 1 1 auto;
+            flex-direction: column;
+            height: calc(100vh - 86px)
+        }
+
+        .wedorang_community_file_wrap.wedo-share-contents .contents-top {
+            display: inline;
+            justify-content: space-between;
+            margin: 15px 0
+        }
+
+        .wedorang_community_file_wrap.wedo-share-contents .contents-top .folder-image img {
+            width: 30px;
+            height: 30px;
+            cursor: pointer
+        }
+
+        .pc .wedorang_community_file_wrap.wedo-share-contents .contents-top .folder-image img:hover {
+            opacity: .5
+        }
+
+        .wedorang_community_file_wrap.wedo-share-contents .contents-top .sort-add-data,
+        .wedorang_community_file_wrap.wedo-share-contents .contents-top .sort-data {
+            display: flex
+        }
+
+        .wedorang_community_file_wrap.wedo-share-contents .contents-top .sort-data {
+            flex-wrap: now-wrap
+        }
+
+        .wedorang_community_file_wrap.wedo-share-contents .contents-top .sort-data li {
+            position: relative
+        }
+
+        .wedorang_community_file_wrap.wedo-share-contents .contents-top .checkbox+label:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            width: 16px;
+            height: 16px;
+            border: 1px solid #bbb;
+            border-radius: 50%;
+            box-sizing: border-box
+        }
+
+        .checkbox {
+            width: 0;
+            height: 0;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            border: 0;
+            margin: auto;
+            cursor: pointer
+        }
+
+        .wedorang_community_file_wrap.wedo-share-contents .contents-top .checkbox:checked+label:before {
+            border: 5px solid #2e6ca9
+        }
+
+        .wedorang_community_file_wrap.wedo-share-contents .contents-top .checkbox+label {
+            padding-left: 30px;
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            color: #666;
+            margin-right: 20px;
+            cursor: pointer
+        }
+
+        .wedorang_community_file_wrap.wedo-share-contents .contents-top .add-data {
+            color: #666;
+            font-size: 14px
+        }
+
+        .wedorang_community_file_wrap.wedo-share-contents .contents-top .add-data button {
+            width: 25px;
+            height: 25px;
+            background-color: #f4f4f4;
+            border-radius: 4px;
+            margin-right: 10px;
+            cursor: pointer
+        }
+
+        .pc .wedorang_community_file_wrap.wedo-share-contents .contents-top .add-data button:hover {
+            opacity: .5
+        }
+
+        .wedorang_community_file_wrap.wedo-share-contents .data-type-list ul {
+            display: flex
+        }
+
+        .wedorang_community_file_wrap.wedo-share-contents .data-type-list ul li {
+            background-color: #f4f4f4;
+            border-top: 1px solid #dbdbdb;
+            border-right: 1px solid #dbdbdb;
+            border-bottom: 1px solid #1f4b78;
+            cursor: pointer;
+            flex: 1;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center
+        }
+
+        .wedorang_community_file_wrap.wedo-share-contents .data-type-list ul li a {
+            width: 100%;
+            text-align: center
+        }
+
+        .wedorang_community_file_wrap.wedo-share-contents .data-type-list ul li:first-child {
+            border-left: 1px solid #dbdbdb
+        }
+
+        .wedorang_community_file_wrap.wedo-share-contents .data-type-list ul li.on {
+            background-color: #fff;
+            border: 1px solid #1f4b78;
+            border-bottom: 0
+        }
+
+        .wedorang_community_file_wrap.wedo-share-contents .data-type-list+ul {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 25px;
+            padding-bottom: 50px;
+            -ms-overflow-style: none
+        }
+
+        .wedorang_community_file_wrap.wedo-share-contents .data-type-list+ul li {
+            margin: 0 0.62%;
+            width: 100px;
+            text-align: center;
+            margin-bottom: 25px
+        }
+
+        .wedorang_community_file_wrap.wedo-share-contents .data-type-list+ul li .image {
+            background-color: #f4f4f4;
+            border-radius: 5px;
+            width: 100%;
+            height: 110px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+            cursor: pointer
+        }
+
+        .pc .wedorang_community_file_wrap.wedo-share-contents .data-type-list+ul li .image:hover {
+            opacity: .5
+        }
+
+        .pc .wedorang_community_file_wrap.wedo-share-contents .data-type-list+ul li .desc:hover,
+        .pc .wedorang_community_file_wrap.wedo-share-contents .data-type-list+ul li .title:hover {
+            color: #fb8627
+        }
+
+        .wedorang_community_file_wrap.wedo-share-contents .data-type-list+ul li .title {
+            margin-bottom: 10px;
+            font-size: 12px;
+            color: #111;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis
+        }
+
+        .wedorang_community_file_wrap.wedo-share-contents .data-type-list+ul li .date {
+            font-size: 12px;
+            color: #999
+        }
+
+        .wedorang_community_file_wrap.wedo-share-contents .data-type-list+ul+button {
+            width: 100%;
+            height: 40px;
+            font-size: 14px;
+            color: #666;
+            text-align: center;
+            background-color: #fff;
+            border-radius: 4px;
+            margin-bottom: 15px
+        }
+
+        @font-face {
+            font-family: Noto Sans KR;
+            font-weight: 700;
+            src: url(../resources/font/NotoSansKR-Bold.eot);
+            src: url(../resources/font/NotoSansKR-Bold.eot?#iefix) format('embedded-opentype'), url(../resources/font/NotoSansKR-Bold.woff) format('woff'), url(../resources/font/NotoSansKR-Bold.ttf) format('truetype')
+        }
+
+        @font-face {
+            font-family: NanumSquare;
+            font-style: normal;
+            font-weight: 400;
+            src: url(../resources/font/NanumSquareRoundR.eot);
+            src: url(../resources/font/NanumSquareRoundR.eot?#iefix) format('embedded-opentype'), url(../resources/font/NanumSquareRoundR.woff2) format('woff2'), url(../resources/font/NanumSquareRoundR.woff) format('woff'), url(../resources/font/NanumSquareRoundR.ttf) format('truetype')
+        }
+    </style>
+    <!-- script src="./resources/js/jquery-3.3.1.min.js"></!-->
+    <!-- ajax 사용에 필요함 -->
+    <!--script src="./resources/js/vue.js"></!--script>
+  <script src="./resources/js/axios.min.js"></>
+  <script src="./resources/js/exif.js"></script -->
+    <!-- script type="text/javascript">
+    var contextRoot = '${myContextRoot}';
+    var contextResourceRoot = './resources/'; 
+    var sessionData = {userId:"<%=userId%>", version:"<%=version%>", versionDate:"<%=versionDate%>", stUrl:"<%=stUrl%>", wedorangUrl:"<%=wedorangUrl%>", logoutUrl:"<%=logoutUrl%>"};
+    var authCode = '';
+    var sort = 'date';
+    /**
+    * Page Load Event
+    $(document).ready(function(){
+    // When user chooses a PDF file
+    $("#fileInfo").on('change', function() {
+
+    var fileInfo = $("#fileInfo").get(0).files[0];
+    $("#fileInfo").val(""); 
+
+    if(wedorang == null){
+    wedorang = new Vue({
+    el:'#wedorang',
+    created(){
+    this.dataBinding()
+    },
+    data(){return { classItems:[]}},
+    methods:{
+    dataBinding(){
+    var reqData = {};
+    callAPI(contextRoot+"/api/myClassList", 'WEDORANG', reqData, null, this.callback);
+    },
+    callback(resData){
+    if(resData.classlist.class.length != null && resData.classlist.class.length > 0){
+    this.classItems = [];
+    this.classItems = resData.classlist.class;
+    }else{
+    this.classItems = [];
+    this.classItems.push(resData.classlist.class);
+    }
+
+
+    var html = "<input id='chkClass' type='hidden' value='' />";
+    for(var i = 0; i < this.classItems.length; i++){
+    html += "<div class='list' onClick='actionMove(\""+this.classItems[i].classId+"\", 1)'>"+this.classItems[i].groupName+"</div>";
+    }
+    var data = {title:'위두랑 전송', content:html, btn1:'취소', btn2:'확인', contentCenter:false, btnRight:25};
+
+    showMsgPopup(data, function(){}, function(){
+    var classId = $("#chkClass").val();
+    if(classId != ''){
+    const formData = new FormData();
+    formData.append("fileInfo", fileInfo);
+    formData.append("classId", classId);
+    var reqData = formData;
+    var header = {header:{"Content-Type" : "multipart/form-data"}};
+    callAPI(contextRoot+"/api/dataUpload", 'WEDORANG', reqData, header, wedorang.submitCallback);
+    }
+    });
+    },
+    submitCallback(resData){
+    var obj = {title:'안내', content:'위두랑 파일 전송이 완료되었습니다.', btn1:'확인', contentCenter:true, btnRight:25};
+    showMsgPopup(obj, function(){
+
+    });
+    }
+    }	
+    });
+    }else{
+    wedorang.dataBinding()
+    }
+    });
+
+    // When user chooses a PDF file
+    $("#fileInfo1").on('change', function() {
+    // Validate whether PDF
+    if(['application/pdf'].indexOf($("#fileInfo1").get(0).files[0].type) == -1) {
+    alert('Error : Not a PDF');
+    return;
+    }
+
+    var fileInfo = $("#fileInfo1").get(0).files[0];
+    //if ($.browser.msie) { // ie 일때 
+    //	$("#fileInfo1").replaceWith( $("#fileInfo1").clone(true) ); 
+    //} else { // other browser 일때 
+    $("#fileInfo1").val(""); 
+    //}
+
+    var url = URL.createObjectURL(fileInfo);
+    window.open("/viewer/pdf?fileUrl="+url);
+
+    });
+
+    });
+    */
+    var store = null;
+    var storeDetail = null;
+    var storeshelf = null;    
+    var bookshelf = null;
+    var bookshelfDetail = null;
+    var bookshelfGroup = null;
+    var userInfo = null;
+    var userMainInfo = null;
+    var recentStudyBook = null;
+    var notice = null;
+    var faq = null;
+    var test1 = null;
+    var test2 = null;
+    var test3 = null;
+    var init = null;
+    var wedorang = null;
+    var help = null;
+    var chkArr = [];
+    var templet = '';
+  </!script -->
+</head>
+
+<body class="pc">
+    <header>
+        <div class="top">
+            <div class="menu">
+                <a href="javascript:;" id="leftMenu" title="왼쪽메뉴">
+                    <img src="./resources/images/menu.png" class="topleft" alt="메뉴" />
+                </a>
+                <div class="sub-bg"></div>
+                <div class="sub">
+                    <div class="profile" id="userInfo">
+                        <keep-alive>
+                            <userinfo-component></userinfo-component>
+                        </keep-alive>
+                    </div>
+                    <div class="menu-list">
+                        <ul>
+                            <li title="학습커뮤니티"><img class="community" src="./resources/images/menu/community.png"
+                                    alt="학습커뮤니티" /><em>학습커뮤니티</em></li>
+                            <li title="e학습터"><img class="cls" src="./resources/images/menu/cls.png"
+                                    alt="e학습터"></img><em>e학습터</em>
+                            </li>
+                            <!-- <li title="학교온(OnSchool)"><img class="school" src="./resources/images/menu/school.png" alt="학교온(OnSchool)"></img><em>학교온(OnSchool)</em></li> -->
+                            <li title="공지사항"><img class="notice" src="./resources/images/menu/notice.png"
+                                    alt="공지사항"></img><span id="noticeCnt"></span><em>공지사항</em></li>
+                            <li title="도움말"><img class="help" src="./resources/images/menu/help.png"
+                                    alt="도움말"></img><em>도움말</em></li>
+                            <li title="FAQ"><img class="faq" src="./resources/images/menu/faq.png"
+                                    alt="FAQ"></img><em>FAQ</em></li>
+                            <li title="인증코드"><img src="./resources/images/menu/certification.png" alt="인증코드"
+                                    class="certification" /><em>인증코드</em></li>
+                            <li title="설정"><img class="setting" src="./resources/images/menu/setting.png"
+                                    alt="설정"></img><em>설정</em>
+                            </li>
+                        </ul>
+                        <div class="cs">
+                            <p>고객센터 <a href="tel:1544-0079" target="_blank" title="전화">1544-0079</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="title">
+                <a href="javascript:;" title="디지털교과서">
+                    <!-- modify : 2021-02-08 -->
+                    <img class="logo" src="./resources/images/logo.png" alt="내 서재" id="topLogo"
+                        onclick="viewerpost()" /><span>디지털교과서</span>
+                </a>
+            </div>
+            <div class="logo" id="logo" style="display:none;">
+                <img src="./resources/images/logo.png" alt="내 서재" title="내 서재" />
+            </div>
+            <div class="right" id="rightLayer">
+                <!-- modify : 2021-02-08 -->
+                <!-- a href="javascript:;" title="학교온(OnSchool)"><button class="school">학교온</button></a -->
+                <a href="javascript:;" title="앱열기" style="margin-right: 15px;"><i class="app">앱열기</i></a -->
+                <!-- a href="javascript:;" title="구독하기"><i class="download">구독하기</i></a -->
+                <!-- <div class="menu">
+          <a href="javascript:;" title="우측설정메뉴"><i class="right-menu">우측설정메뉴</i></a>
+          <ul class="menu-list">
+            <!-- li><a href="javascript:;">불러오기</a></li --
+            <li><a href="javascript:;" title="책 검색">책 검색</a></li>
+            <li><a href="javascript:;" title="책 이동/삭제">책 이동/삭제</a></li>
+            <li><a href="javascript:;" title="책장관리">책장 관리</a></li>
+            <li><a href="javascript:;" title="보기형식">리스트형 보기</a></li>
+            <li><a href="javascript:;" title="정렬">제목순 정렬</a></li>
+            <!-- li><a href="javascript:;">위두랑 전송</a></li --
+          </ul>
+        </div> -->
+            </div>
+            <div class="layer" id="searchBar">
+                <div class="leftMenu" title="이전"><img class="back" src="./resources/images/back.png" alt="뒤로가기" /></div>
+                <div class="center"><img src="./resources/images/logo.png" alt="로고이미지" />내 서재에서 검색</div>
+            </div>
+            <div class="layer" id="editBar">
+                <div class="leftMenu" title="이전"><img class="back" src="./resources/images/back.png" alt="뒤로가기" /></div>
+                <div class="center"><img src="./resources/images/logo.png" alt="로고이미지" />책 이동/삭제</div>
+                <!-- div class="rightMenu" onClick="menuClick.deleteBookShelfContent()">삭제</div>
+        <div class="rightMenu" onClick="menuClick.moveBookShelfContent()">이동</div>
+        <div class="rightMenu" style="padding-left:10px;" onClick="menuClick.goCancel()">취소</div -->
+            </div>
+        </div>
+
+        <div class="header_top_info">
+            <!-- modify : 2021-02-08 : 상단 banner 추가 -->
+            <div id="userMainInfo" class="profile">
+                <keep-alive>
+                    <userinfo-main-component></userinfo-main-component>
+                </keep-alive>
+            </div>
+
+            <div class="banner">
+                <div class="txt_box">
+                    <p>신나고 재미있는 수업의 시작</p>
+                    <div class="img">
+                        <p class="ir-blind">디지털교과서와 함께합니다.</p>
+                    </div>
+                </div>
+                <button class="guide_btn" onclick="window.open('https://dtbook.edunet.net/')"><span>활용안내 바로가기
+                        ></span></button>
+            </div>
+    </header>
+
+    <section>
+        <div class="tab_nav" id="store" style="display: block;">
+            <ol>
+                <li class="tab-button">교과서</li>
+                <li class="tab-button">위두랑 자료보기</li>
+                <li class="tab-button">나의 학습기록</li>
+                <li class="tab-button active">나눔 마당</li>
+            </ol>
+        </div>
+
+        <div id="">
+            <div class="share-container">
+                <div class="share-inner">
+                    <div class="share-top">
+                        <ul class="location-wrap">
+                            <li class="home">홈</li>
+                            <li>나눔마당</li>
+                            <li>디지털교과서 클래스</li>
+                            <li>디지털교과서 연계 데이터 나눔공간
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="share-inner">
+                    <div class="share-tab">
+                        <button type="button" class="tab-btn">공개 자료</button>
+                        <button type="button" class="tab-btn on">디지털교과서 클래스</button>
+                        <button type="button" class="tab-btn">나의 자료 공간</button>
+                    </div>
+                </div>
+
+                <div class="share-tab-wrap">
+                    <div class="tab tab01">
+                        <div class="share-list style01">
+                            <div class="share-inner">
+                                <div class="gnb">
+                                    <p class="title">나눔 마당</p>
+                                    <ul>
+                                        <li><a href="#">학습자료 나눔 공간</a></li>
+                                        <li class="on"><a href="#">디지털교과서 연계 데이터 나눔공간</a></li>
+                                    </ul>
+                                </div>
+                                <div class="content">
+                                    <ul class="book-list">
+                                        <li class="subscribing">
+                                            <div class="book">
+                                                <div class="imgArea">
+                                                    <div class="book-sub-wrap">
+                                                        <div class="book-image"><img
+                                                                src="https://webst.edunet.net/3207/8f70fbcc-fec8-4f52-7d04-e98c58f9d036/cover.jpg"
+                                                                alt="표지이미지"></div> <button><i class="check"></i>구독중</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="title flex">
+                                                <div class="titleArea">
+                                                    <div class="flex flex-align-center"><span
+                                                            class="ebook ebook-title">교과서</span> <span class="ebook-name">과학
+                                                            2(샘플)</span></div>
+                                                </div>
+                                            </div>
+                                            <div class="desc">
+                                                <div class="titleArea">
+                                                    <div>
+                                                        <p>학습자료: 10건</p>
+                                                        </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="subscribing">
+                                            <div class="book">
+                                                <div class="imgArea">
+                                                    <div class="book-sub-wrap">
+                                                        <div class="book-image"><img
+                                                                src="https://webst.edunet.net/3207/8f70fbcc-fec8-4f52-7d04-e98c58f9d036/cover.jpg"
+                                                                alt="표지이미지"></div> <button><i class="check"></i>구독중</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="title flex">
+                                                <div class="titleArea">
+                                                    <div class="flex flex-align-center"><span
+                                                            class="ebook ebook-title">교과서</span> <span class="ebook-name">과학
+                                                            2(샘플)</span></div>
+                                                </div>
+                                            </div>
+                                            <div class="desc">
+                                                <div class="titleArea">
+                                                    <div>
+                                                        <p>학습자료: 10건</p>
+                                                        </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="subscribing">
+                                            <div class="book">
+                                                <div class="imgArea">
+                                                    <div class="book-sub-wrap">
+                                                        <div class="book-image"><img
+                                                                src="https://webst.edunet.net/3207/8f70fbcc-fec8-4f52-7d04-e98c58f9d036/cover.jpg"
+                                                                alt="표지이미지"></div> <button><i class="check"></i>구독중</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="title flex">
+                                                <div class="titleArea">
+                                                    <div class="flex flex-align-center"><span
+                                                            class="ebook ebook-title">교과서</span> <span class="ebook-name">과학
+                                                            2(샘플)</span></div>
+                                                </div>
+                                            </div>
+                                            <div class="desc">
+                                                <div class="titleArea">
+                                                    <div>
+                                                        <p>학습자료: 10건</p>
+                                                        </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="subscribing">
+                                            <div class="book">
+                                                <div class="imgArea">
+                                                    <div class="book-sub-wrap">
+                                                        <div class="book-image"><img
+                                                                src="https://webst.edunet.net/3207/8f70fbcc-fec8-4f52-7d04-e98c58f9d036/cover.jpg"
+                                                                alt="표지이미지"></div> <button><i class="check"></i>구독중</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="title flex">
+                                                <div class="titleArea">
+                                                    <div class="flex flex-align-center"><span
+                                                            class="ebook ebook-title">교과서</span> <span class="ebook-name">과학
+                                                            2(샘플)</span></div>
+                                                </div>
+                                            </div>
+                                            <div class="desc">
+                                                <div class="titleArea">
+                                                    <div>
+                                                        <p>학습자료: 10건</p>
+                                                        </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="subscribing">
+                                            <div class="book">
+                                                <div class="imgArea">
+                                                    <div class="book-sub-wrap">
+                                                        <div class="book-image"><img
+                                                                src="https://webst.edunet.net/3207/8f70fbcc-fec8-4f52-7d04-e98c58f9d036/cover.jpg"
+                                                                alt="표지이미지"></div> <button><i class="check"></i>구독중</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="title flex">
+                                                <div class="titleArea">
+                                                    <div class="flex flex-align-center"><span
+                                                            class="ebook ebook-title">교과서</span> <span class="ebook-name">과학
+                                                            2(샘플)</span></div>
+                                                </div>
+                                            </div>
+                                            <div class="desc">
+                                                <div class="titleArea">
+                                                    <div>
+                                                        <p>학습자료: 10건</p>
+                                                        </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="subscribing">
+                                            <div class="book">
+                                                <div class="imgArea">
+                                                    <div class="book-sub-wrap">
+                                                        <div class="book-image"><img
+                                                                src="https://webst.edunet.net/3207/8f70fbcc-fec8-4f52-7d04-e98c58f9d036/cover.jpg"
+                                                                alt="표지이미지"></div> <button><i class="check"></i>구독중</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="title flex">
+                                                <div class="titleArea">
+                                                    <div class="flex flex-align-center"><span
+                                                            class="ebook ebook-title">교과서</span> <span class="ebook-name">과학
+                                                            2(샘플)</span></div>
+                                                </div>
+                                            </div>
+                                            <div class="desc">
+                                                <div class="titleArea">
+                                                    <div>
+                                                        <p>학습자료: 10건</p>
+                                                        </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="subscribing">
+                                            <div class="book">
+                                                <div class="imgArea">
+                                                    <div class="book-sub-wrap">
+                                                        <div class="book-image"><img
+                                                                src="https://webst.edunet.net/3207/8f70fbcc-fec8-4f52-7d04-e98c58f9d036/cover.jpg"
+                                                                alt="표지이미지"></div> <button><i class="check"></i>구독중</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="title flex">
+                                                <div class="titleArea">
+                                                    <div class="flex flex-align-center"><span
+                                                            class="ebook ebook-title">교과서</span> <span class="ebook-name">과학
+                                                            2(샘플)</span></div>
+                                                </div>
+                                            </div>
+                                            <div class="desc">
+                                                <div class="titleArea">
+                                                    <div>
+                                                        <p>학습자료: 10건</p>
+                                                        </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 학습자료 등록 팝업 -->
+        <div id="" class="popupLayer share">
+            <div class="popup-wrap make">
+                <div class="title-wrap">
+                    <div class="title">학습자료 등록</div>
+                    <div class="btn-wrap">
+                        <button onclick="closeLayer()" class="btn-close">
+                            <img src="./resources/images/close-blue.png" alt="닫기" class="close-blue">
+                        </button>
+                    </div>
+                </div>
+
+                <div class="popupCont">
+                    <div class="table-wrap">
+                        <div class="table-row">
+                            <p class="tit">
+                                학교
+                            </p>
+                            <p class="cont">
+                                <select name="select01" id="select01">
+                                    <option value="select01">학교급</option>
+                                </select>
+                            </p>
+                        </div>
+                        <div class="table-row">
+                            <p class="tit">
+                                학년
+                            </p>
+                            <p class="cont">
+                                <select name="select01" id="select01">
+                                    <option value="select01">학교급</option>
+                                </select>
+                            </p>
+                        </div>
+                        <div class="table-row">
+                            <p class="tit">
+                                과목
+                            </p>
+                            <p class="cont">
+                                <select name="select01" id="select01">
+                                    <option value="select01">학교급</option>
+                                </select>
+                            </p>
+                        </div>
+                        <div class="table-row">
+                            <p class="tit">
+                                설명
+                            </p>
+                            <p class="cont">
+                                <input type="text" name="text01" id="text01">
+                                <label for="text01"></label>
+                            </p>
+                        </div>
+                        <div class="table-row">
+                            <p class="tit">
+                                첨부파일
+                            </p>
+                            <div class="cont">
+                                <div class="input-file">
+                                    <input type="file" name="file" id="file">
+                                    <label for="file">파일선택</label>
+                                    <ul class="file-list">
+                                        <li>파일.jpg <button type="button" class="del-btn"></button></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="popupBtnArea">
+                    <div id="" class="btn box">업로드</div>
+                </div>
+            </div>
+        </div> <!-- 학습자료 등록 팝업 -->
+</body>
+
+</html>

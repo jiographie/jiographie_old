@@ -1,0 +1,1631 @@
+/*@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
+@import url(https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap);
+*/
+@font-face {
+   font-family: 'Noto Sans KR';
+   font-display: fallback;
+   src: url(../font/NotoSansKR-Regular.woff2) format('woff2'),
+        url(../font/NotoSansKR-Regular.woff) format('woff'),
+        url(../font/NotoSansKR-Regular.otf) format('opentype');
+}
+html {
+	-ms-overflow-style: none; /*-ms-autohiding-scrollbar;*/
+	scrollbar-width: none; /* Firefox 64 */
+	/*-webkit-text-size-adjust: none;
+	touch-action: none;*/
+}
+body{
+	-webkit-overflow-scrolling: touch;
+}
+*{
+    padding : 0;
+    margin : 0;
+    box-sizing: border-box;
+	font-family:'Noto Sans KR',"Apple SD Gothic Neo",sans-serif;
+    -webkit-appearance:none;
+    -webkit-tap-highlight-color: transparent;   
+}
+
+li{
+    list-style-type : none;
+}
+
+a{
+    text-decoration: none;
+    color : inherit;
+    cursor:pointer;
+}
+
+button{
+    cursor : pointer;
+    border : 0;
+    background : inherit;
+    outline : none;
+   
+}
+label{cursor:pointer;}
+
+button:active{
+    background-color : none;
+}
+
+::-ms-clear { display:none; }
+i{
+    display : inline-block;
+    vertical-align: middle;
+}
+
+img{
+    vertical-align: bottom;
+}
+
+section:not(.viewer) {
+    margin-top : 100px;
+}
+
+input{
+    border-radius : 0;
+}
+
+input:focus{
+    outline : none;
+}
+.checkbox{
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border:0;
+    margin: auto;
+    cursor:pointer;
+}
+
+.clear::after{
+    display : block;
+    content : '';
+    clear : both;
+}
+
+/* 폰트사이즈 */
+.fs-20{ 
+    font-size : 20px;
+}
+
+.fs-14{
+    font-size  : 14px;
+}
+
+/* display 정의 */
+
+.flex{
+    display : flex;
+}
+
+
+/* flex 속성 */
+
+.flex-center{
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-align-center{
+    align-items: center;
+}
+
+
+/* 그림자 */
+.shadow{
+    box-shadow : 1px 5px 7px 0px #dedede;
+}
+
+/* 버튼 */
+.btn-blue{
+    background-color : #245686;
+    color : #fff;
+    border-radius: 5px;
+}
+
+.btn-white{
+    background-color : #fff;
+    color : #245686;
+    border-radius : 5px;
+    border : 1px solid;
+}
+.pc i:hover,
+.pc img:hover{
+	opacity:0.5;
+}
+.pc footer > .menu-button img:hover,
+.pc .fixed img:hover,
+.pc .help-modal img:hover{
+	opacity:1;
+}
+/* 아이콘 */
+i.download{
+    background-image : url('../images/icons/download.png');
+    width: 21px;
+    height : 20px;
+}
+
+i.search{
+    background-image : url('../images/icons/search.png');
+    width : 15px;
+    height : 15px;
+}
+
+i.search2{
+    background-image : url('../images/icons/search2.png');
+    width : 20px;
+    height : 20px;
+}
+
+i.search3{
+    background-size: 19px;
+    background-image: url(../images/icons/search3.png);
+    width : 19px;
+    height : 19px;
+}
+
+i.book{
+    background-image : url('../images/icons/book.png');
+    width : 18px;
+    height : 14px;
+}
+
+i.align{
+    background-image : url('../images/icons/align.png');
+    width : 12px;
+    height : 12px;
+}
+
+i.community{
+    background-image : url('../images/icons/menu/community.png');
+    width : 28px;
+    height : 21px;
+}
+
+i.faq{
+    background-image : url('../images/icons/menu/faq.png');
+    width : 25px;
+    height : 25px;
+}
+
+i.notice{
+    background-image : url('../images/icons/menu/notice.png');
+    width : 26px;
+    height : 29px;
+    background-repeat:no-repeat;
+}
+
+i.setting{
+    background-image : url('../images/icons/menu/setting.png');
+    width : 28px;
+    height : 28px;
+}
+
+i.certification{
+    background-image : url("../images/icons/menu/certification.png");
+    width : 22px;
+    height : 28px;
+}
+
+i.help{
+    background-image : url('../images/icons/menu/help.png');
+    width : 23px;
+    height : 28px;
+}
+
+i.logo{
+    background-image : url('../images/icons/logo.png');
+    width : 34px;
+    height : 35px;
+}
+
+i.right-menu{
+    background-image : url('../images/icons/right-menu.png');
+    width : 4px;
+    height : 19px;
+}
+i.plus{
+    background-image : url('../images/icons/plus.png');
+    width : 10px;
+    height : 10px;
+}
+
+i.check{
+    background-image : url('../images/icons/check.png');
+    width : 10px;
+    height : 10px;
+}
+
+i.up{
+    background-image : url('../images/icons/viewer/up.png');
+    width : 17px;
+    height : 10px;
+}
+
+i.down{
+    background-image : url('../images/icons/viewer/down.png');
+    width : 18px;
+    height : 12px;
+}
+
+i.app{
+    background-image : url('../images/icons/app.png');
+    width : 22px;
+    height : 22px;
+}
+
+i.align1{
+    background-image : url("../images/icons/align1.png");
+    width : 16px;
+    height : 16px;
+}
+
+i.align2{
+    background-image : url("../images/icons/align2.png");
+    width : 16px;
+    height : 16px;
+}
+
+i.close-blue,
+img.close-blue{
+    /*background-image : url("../images/icons/close-blue.png");*/
+    width : 22px;
+    height : 22px;
+    cursor:pointer;
+    z-index:1;
+}
+
+i.back{
+    background-image : url("../images/icons/back.png");
+    width : 22px;
+    height : 18px;
+}
+
+i.alert{
+    background-image : url("../images/icons/alert.png");
+    width : 16px;
+    height: 16px;
+}
+
+i.left-pointer-arrow{
+    background-image : url("../images/icons/viewer/custom-prev.png");
+    width : 13px;
+    height : 19px;
+}
+
+i.right-pointer-arrow{
+    background-image : url("../images/icons/viewer/custom-next.png");
+    width : 13px;
+    height : 19px;
+}
+
+i.refresh{
+    background-image : url("../images/icons/refresh.png");
+    width : 27px;
+    height : 22px;
+}
+
+i.move{
+    background-image : url("../images/icons/move.png");
+    width : 14px;
+    height : 14px;
+}
+
+i.delete{
+    background-image : url("../images/icons/delete.png");
+    width : 14px;
+    height : 14px;  
+}
+
+i.pencil{
+    background-image : url("../images/icons/pencil.png");
+    width : 11px;
+    height : 11px;  
+}
+
+i.close{
+    background-image : url("../images/icons/close-gray.png");
+    width : 11px;
+    height : 11px;  
+}
+
+i.wedo{
+    background-image : url("../images/icons/wedo-blue.png");
+    width : 19px;
+    height : 14px;  
+}
+
+i.share{
+    background-image : url("../images/icons/viewer/share.png");
+    width : 25px;
+    height : 25px;  
+}
+
+i.down-arrow{
+    background-image : url("../images/icons/viewer/arrow-down.png");
+    width : 9px;
+    height : 6px;  
+}
+
+i.eraser{
+    background-image : url("../images/icons/viewer/eraser.png");
+    width : 28px;
+    height : 28px;  
+}
+
+i.trash{
+    background-image : url("../images/icons/viewer/trash.png");
+    width : 28px;
+    height : 28px;  
+}
+
+i.highlight{
+    background-image : url("../images/icons/viewer/highlight.png");
+    width : 28px;
+    height : 28px;
+}
+
+i.copy{
+    background-image : url("../images/icons/viewer/copy.png");
+    width : 28px;
+    height : 24px;
+}
+
+i.record{
+    background-image : url("../images/icons/viewer/record.png");
+    width : 18px;
+    height : 28px;
+}
+
+i.link{
+    background-image : url("../images/icons/viewer/link.png");
+    width : 28px;
+    height : 29px;
+}
+
+i.edunet{
+    background-image : url("../images/icons/viewer/edunet.png");
+    width : 28px;
+    height : 26px;
+}
+
+i.memo{
+    background-image : url("../images/icons/viewer/memo-select.png");
+    width : 22px;
+    height : 28px;
+}
+
+i.share-blue{
+    background-image : url("../images/icons/viewer/share-blue.png"); 
+    width : 18px;
+    height :21px;
+}
+
+i.all{
+    background-image : url("../images/icons/viewer/all.png");
+    width : 14px;
+    height : 14px;
+}
+
+i.star{
+    background-image : url("../images/icons/viewer/navy_star.png");
+    width :14px;
+    height : 14px;
+    background-size : 14px;
+}
+
+i.custom-mode{
+    background-image : url("../images/icons/viewer/icon-custom.png");
+    width : 12px;
+    height : 12px;
+}
+
+i.simple-mode{
+    background-image : url("../images/icons/viewer/icon-simple.png");
+    width : 12px;
+    height : 12px;
+}
+
+
+/*
+    text에 아이콘 적용
+*/
+.input-wrap{
+    position : relative;
+}
+
+.input-wrap i{
+    position : absolute;
+    top : 0;
+    bottom : 0;
+    margin : auto;
+    right : 10px;
+}
+
+/* 로그인 */
+i.input-button1{
+    background-image : url("../images/icons/viewer/input-button1.png");
+    width : 22px;
+    height : 22px;
+    cursor : pointer;
+}
+
+/*패스워드 */
+i.input-button2{
+    background-image : url("../images/icons/viewer/input-button2.png");
+    width : 22px;
+    height : 22px;
+    cursor : pointer;
+}
+
+/* 일반 x */
+i.input-button3{
+    background-image : url("../images/icons/viewer/input-button3.png");
+    width : 22px;
+    height : 22px;
+    cursor : pointer;
+}
+.popup-wrap .btn-wrap button:active{
+    filter: brightness(80%);
+}
+#btnSlideLeft,#btnSlideRight{
+	display:none;
+}
+/* 상세보기 페이지 */
+.detail-top{
+    display : none;
+}
+
+.detail-top.on{
+    display : block;
+}
+
+.detail-top .top{
+    background-color : #245686;
+    display : flex;
+    height : 50px;
+    padding : 0 30px;
+    align-items: center;
+    box-shadow : 0px 6px 8px rgba(21,61,92,0.26);
+    position:relative;
+}
+
+.detail-top .top img{
+    display: block;
+}
+
+.detail-top .top .title{
+    color: #fff;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.detail-top i.download{
+    margin-right : 10px;
+}
+
+/* 디테일 상세보기 앱 */
+.store-detail-app.detail{
+    display : none;
+}
+
+.select-book-download{
+    display : flex;
+    justify-content: flex-end;
+    margin-bottom : 10px;
+}
+
+.select-book-download button{
+    padding : 5px 10px;
+}
+
+.store-detail-app .checkbox-wrap{
+    width : 35px;
+    text-align :center;
+}
+
+.store-detail-app .checkbox-wrap~div{
+    text-align : center;
+    position : relative;
+    height : 50px;
+    display : flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.store-detail-app .checkbox-wrap~div:before{
+    border-left : 1px solid #dbdbdb;
+    height : 100%;
+    content : '';
+    display : inline-block;
+    position : absolute;
+    top : 0;
+    left : 0;
+}
+
+.store-detail-app .chapter-name{
+    flex : 1;
+}
+
+.store-detail-app .size{
+    width : 80px;
+}
+
+.store-detail-app .download{
+    width : 120px;
+}
+
+.store-detail-app .checkbox + label{
+    background-image : url("../images/icons/viewer/checkbox.png");
+    background-size : 20px;
+    background-repeat : no-repeat;
+    background-position :  left center;
+    width : 20px;
+    height : 20px;
+    display : inline-block;
+    vertical-align: middle;
+}
+
+.store-detail-app .checkbox:checked + label{
+    background-image : url("../images/icons/viewer/checkbox-on.png");
+}
+
+.store-detail-app .complete .size,
+.store-detail-app .complete .download{
+    color : #8b8b8b;
+}
+
+/* 내서재 책검색 */
+.searchbook-modal{
+    display : none;
+}
+
+.searchbook-modal.on{
+    display : block;
+    position : absolute;
+    top : 0;
+    left : 0;
+    width : 100%;
+}
+
+.searchbook-modal .searchbook-header .top {
+    background-color: #245686;
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    padding: 0 30px;
+    align-items: center;
+    box-shadow: 0px 6px 8px rgba(21,61,92,0.26);
+    position: relative;
+}
+
+.searchbook-modal .searchbook-header .top .title {
+    color: #fff;
+    font-size: 20px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.searchbook-modal .searchbook-header .top .title a {
+    display: flex;
+    align-items: center;
+}
+
+.searchbook-modal .searchbook-header .top .title a img {
+    margin-right: 10px;
+}
+.searchbook-modal .searchbook-header .top img {
+    display: block;
+}
+
+.searchbook-modal .searchbook-section{
+    height: calc(100vh - 100px);
+    padding: 0 30px;
+}
+
+.searchbook-modal .searchbook-section .search-wrap {
+    margin-top: 10px;
+    margin-bottom: 160px;
+}
+
+.searchbook-modal .searchbook-section .search-input {
+    border: 0;
+    border-bottom: 1px solid #245686;
+    background-position: right top;
+    width: 100%;
+    padding-bottom: 15px;
+    font-size: 14px;
+    background-size: 19px;
+    background-image: url(../images/icons/search3.png);
+    background-repeat: no-repeat;
+    outline: none;
+}
+
+.searchbook-modal .searchbook-section .contents {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-size: 20px;
+    color: #111;
+}
+
+.searchbook-modal .searchbook-section .contents img {
+    margin-bottom: 40px;
+}
+
+.searchbook-modal.searchbook-isbook .searchbook-section .search-wrap {
+    margin-bottom : 40px;
+}
+
+.modal-section .book-list {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.modal-section .book-list li .book img{
+    box-shadow: 2px -2px 7px 0 #dedede;
+    width: 129px;
+}
+
+.modal-section .book-list li .title span {
+    color: #fff;
+    background-color: #976ab6;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 11px;
+    width: 45px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.searchbook-modal.searchbook-isbook .contents{
+    height: calc(100vh - 100px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.searchbook-modal.searchbook-isbook .searchbook-section .contents img{
+    margin-bottom : 0;
+}
+
+.searchbook-modal.searchbook-nobook .searchbook-section{
+    height: calc(100vh - 100px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.searchbook-modal.searchbook-nobook .searchbook-section .book-list.no li {
+    width: auto;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.searchbook-modal.searchbook-nobook .searchbook-section .book-list.no li p:first-child {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.searchbook-modal.searchbook-nobook .searchbook-section .book-list.no li p:first-child + p {
+    font-size: 14px;
+    margin-bottom: 40px;
+    color: #666;
+}
+
+.searchbook-modal.searchbook-nobook .searchbook-section .book-list.no li .btn-white {
+    width: 200px;
+    height: 100px;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+    white-space: nowrap;
+}
+
+/* 책 이동/삭제 */
+.move-delete-modal{
+    display : none;
+}
+
+.move-delete-modal.on{
+    display : block;
+    position : absolute;
+    top : 0;
+    left : 0;
+    width : 100%;
+}
+
+.move-delete-modal .move-delete-header .top {
+    background-color: #245686;
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    padding: 0 30px;
+    align-items: center;
+    box-shadow: 0px 6px 8px rgba(21,61,92,0.26);
+    position: relative;
+}
+
+.move-delete-modal .move-delete-header .top .title {
+    color: #fff;
+    font-size: 20px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.move-delete-modal .move-delete-header .top .title a {
+    display: flex;
+    align-items: center;
+}
+
+.move-delete-modal .move-delete-header .top .title a img {
+    margin-right: 10px;
+}
+.move-delete-modal .move-delete-header .top img {
+    display: block;
+}
+
+.move-delete-modal .contents{
+    position : relative;
+}
+
+.move-delete-modal .contents .btn-wrap{
+    margin: 25px 30px 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.move-delete-modal .contents .book-list-title{
+    margin : 20px 30px;
+    color : #111;
+    font-size : 16px;
+}
+
+.move-delete-modal .contents .btn-wrap .btn-white{
+    width : 70px;
+    height : 30px;
+    display : flex;
+    justify-content: center;
+    align-items : center;
+    font-size: 14px;
+    margin-right : 10px;
+}
+
+.move-delete-modal .contents .btn-wrap .btn-white:last-child{
+    margin-right : 0;
+}
+
+.move-delete-modal .contents .btn-wrap .btn-white i{
+    margin-right : 8px;
+}
+
+.move-delete-modal .contents .book-list{
+    position : static;
+}
+
+.move-delete-modal .contents .book-image > div{
+    position : relative;
+    display : inline-block;
+}
+
+.move-delete-modal .checkbox + label{
+    position : absolute;
+    background-image : url("../images/icons/viewer/checkbox.png");
+    background-size : 20px;
+    background-repeat : no-repeat;
+    width : 20px;
+    height : 20px;
+    top : 10px;
+    left : 10px;
+    cursor : pointer;
+}
+
+.move-delete-modal .checkbox:checked + label{
+    background-image : url("../images/icons/viewer/checkbox-on.png");
+}
+
+/* 책장관리 */
+.book-shelf-modal{
+    display : none;
+}
+
+.book-shelf-modal.on{
+    display : block;
+}
+
+.book-shelf-modal .book-shelf-header .top .title a {
+    display: flex;
+    align-items: center;
+}
+
+.book-shelf-modal .book-shelf-header .top .title a img {
+    margin-right: 10px;
+}
+
+.book-shelf-title{
+    height : 50px;
+    position: relative;
+    border : 1px solid #dbdbdb;
+    line-height : 50px;
+}
+
+.book-shelf-title .title{
+    font-size : 16px;
+    color : #245686;
+    text-align : center;
+    font-weight : 600;
+}
+
+.book-shelf-title .btn-white{
+    position : absolute;
+    font-size : 14px;
+    width : 75px;
+    height : 30px;
+    top : 0;
+    bottom : 0;
+    right : 34px;
+    margin : auto;
+}
+
+.book-shelf-list{
+    margin-top : 15px;
+    padding : 0 30px;
+}
+
+.book-shelf-list li{
+    height : 50px;
+    border-bottom : 1px dotted #dbdbdb;
+    color : #666;
+    display : flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.book-shelf-list li button{
+    background-color : #f4f4f4;
+    border-radius : 5px;
+    width : 25px;
+    height : 25px;
+    margin-left : 10px;
+}
+
+/* 리스트형보기 */
+.book-list-type-modal{
+    display : none;
+}
+
+.book-list-type-modal.on{
+    display : block;
+}
+
+.book-list-type-modal .book-list-type-header .top .title a {
+    display: flex;
+    align-items: center;
+}
+
+.book-list-type-modal .book-list-type-header .top .title a img {
+    margin-right: 10px;
+}
+
+.book-list-type-modal .book-list-type{
+    margin : 30px;
+}
+
+.book-list-type-modal .book-list-type .book-btn{
+    display : none;
+}
+
+.book-list-type ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.book-list-type ul li {
+    display: flex;
+    padding: 20px 0;
+    border-bottom: 1px dashed #dbdbdb;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.book-list-type ul li .image {
+    width: 125px;
+    margin-right: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.book-list-type ul li .image img {
+    width: 100%;
+    box-shadow: 0px 0px 9px 0px #e8e8e8;
+}
+
+.book-list-type ul li .book-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 40%;
+}
+
+.book-list-type ul li .book-name {
+    font-size: 16px;
+    color: #666;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.book-list-type ul li .book-name span.textbook {
+    background-color: #976ab6;
+}
+
+.book-list-type ul li .book-name span {
+    color: #fff;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 11px;
+    width: 45px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.book-list-type ul li .book-desc {
+    font-size: 14px;
+    height: 90px;
+    color: #666;
+}
+
+.book-list-type ul li .book-sub-desc {
+    font-size: 12px;
+    color: #666;
+}
+
+.book-list-type ul li .book-sub-desc span:first-child {
+    padding-left: 0;
+}
+.book-list-type ul li .book-sub-desc span {
+    padding: 0 10px;
+    border-right: 1px solid #dbdbdb;
+}
+
+.book-list-type ul li .book-sub-desc span:last-child {
+    border-right: 0;
+}
+
+.book-list-type ul li .book-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: auto;
+}
+
+.book-list-type ul li .book-btn .btn-red {
+    border-radius: 5px;
+    color: #fff;
+    background-color: #db3435;
+    box-shadow: 2px 2px 8px #d9d9d9;
+    font-size: 14px;
+    width: 80px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.book-list-type ul li .book-btn .btn-white.btn-detail {
+    border-radius: 5px;
+    color: #666;
+    box-shadow: 2px 2px 8px #d9d9d9;
+    font-size: 14px;
+    width: 80px;
+    height: 30px;
+}
+.book-list-type ul li .book-btn .btn-white {
+    border-radius: 5px;
+    box-shadow: 2px 2px 8px #d9d9d9;
+    font-size: 14px;
+    width: 80px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+/* 썸네일 */
+.book-thumbnail-type-modal{
+    display : none;
+}
+
+.book-thumbnail-type-modal.on{
+    display : block;
+}
+
+.book-thumbnail-type-modal .book-thumbnail-type-header .top .title a {
+    display: flex;
+    align-items: center;
+}
+
+.book-thumbnail-type-modal .book-thumbnail-type-header .top .title a img {
+    margin-right: 10px;
+}
+
+.book-thumbnail-type-modal .contents{
+    position : relative;
+}
+
+/* 위두랑 전송 */
+.wedo-modal{
+    display : none;
+}
+
+.wedo-modal.on{
+    display : block;
+}
+
+.wedo-modal .wedo-header .top .title a {
+    display: flex;
+    align-items: center;
+}
+
+.wedo-modal .wedo-header .top .title a img {
+    margin-right: 10px;
+}
+
+.wedo-modal .contents{
+    position : relative;
+}
+
+.wedo-modal .contents .btn-wrap{
+    margin: 25px 30px 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.wedo-modal .contents .book-list-title{
+    margin : 20px 30px;
+    color : #111;
+    font-size : 16px;
+}
+
+.wedo-modal .contents .btn-wrap .btn-white{
+    width : 115px;
+    height : 30px;
+    display : flex;
+    justify-content: center;
+    align-items : center;
+    font-size: 14px;
+}
+
+.wedo-modal .contents .btn-wrap .btn-white i{
+    margin-right : 8px;
+}
+
+.wedo-modal .contents .book-list{
+    position : static;
+}
+
+/* 이동할 책장 선택 */
+.move-book-select-popup .popup-wrap{
+    max-width : 500px;
+    width : 95%;
+    border: 4px solid #204d79;
+    overflow: hidden;
+}
+
+.move-book-select-popup .popup-wrap > div:first-child{
+    padding : 30px 30px 50px;
+}
+
+.move-book-select-popup .popup-wrap .title{
+    margin-bottom : 30px;
+    color : #222;
+    font-size : 26px;
+}
+
+.move-book-select-popup .popup-wrap ul{
+    border-top : 2px solid #999;
+    max-height : 162px;
+    height: 40vh;
+    overflow-y : scroll;
+    -ms-overflow-style: none;
+}
+
+.move-book-select-popup .popup-wrap ul li{
+    padding-left : 10px;
+    border-bottom : 1px solid #dbdbdb;
+    color : #666;
+    font-size : 14px;
+    background-color : #fff;
+    min-height : 40px;
+    display: flex;
+    align-items: center;
+    cursor : pointer;
+}
+
+.move-book-select-popup .popup-wrap ul li.on{
+    background-color : #f4f4f4;
+    color : #fb8627;
+}
+
+.move-book-select-popup .popup-wrap .btn-wrap{
+    display : flex;
+}
+
+.move-book-select-popup .popup-wrap .btn-wrap button{
+    flex:1;
+    height: 50px;
+    /*display: flex;*/
+    align-items: center;
+    justify-content: center;
+    border-radius: 0;
+    font-size: 16px;
+}
+
+/* 책삭제 */
+.delete-book-popup .popup-wrap{
+    max-width : 500px;
+    width : 95%;
+    border: 4px solid #204d79;
+    overflow: hidden;
+}
+
+.delete-book-popup .popup-wrap > div:first-child{
+    padding : 30px 30px 50px;
+    text-align : center;
+}
+
+.delete-book-popup .popup-wrap .title{
+    margin-bottom : 30px;
+    color : #222;
+    font-size : 26px;
+}
+
+.delete-book-popup .popup-wrap .title + p{
+    margin-bottom : 20px;
+}
+
+.delete-book-popup .popup-wrap p{
+    color : #666;
+    font-size: 14px;
+}
+
+
+.delete-book-popup .popup-wrap .btn-wrap{
+    display : flex;
+}
+
+.delete-book-popup .popup-wrap .btn-wrap button{
+    flex:1;
+    height: 50px;
+    /*display: flex;*/
+    align-items: center;
+    justify-content: center;
+    border-radius: 0;
+    font-size: 16px;
+}
+
+/* 책장 생성 */
+.add-book-shelf-modal .popup-wrap{
+    max-width : 500px;
+    width : 95%;
+    border : 4px solid #204d79;
+    overflow:hidden;
+}
+
+.add-book-shelf-modal .popup-wrap > div:first-child{
+    padding : 30px 30px 50px;
+}
+
+.add-book-shelf-modal .title-wrap{
+    margin-bottom : 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.add-book-shelf-modal .title{
+    font-size : 26px;
+    color : #222;
+}
+
+.add-book-shelf-modal .add-book-shelf-input{
+    padding-left : 12px;
+    padding-bottom : 13px;
+    border : 0;
+    border-bottom : 1px solid #245686;
+    font-size : 14px;
+    color : #999;
+    width : 100%;
+}
+
+.add-book-shelf-modal .popup-wrap .btn-wrap{
+    display : flex;
+}
+
+.add-book-shelf-modal .popup-wrap .btn-wrap button{
+    flex:1;
+    height: 50px;
+    /*display: flex;*/
+    align-items: center;
+    justify-content: center;
+    border-radius: 0;
+    font-size: 16px;
+}
+
+/* 책장삭제 */
+.delete-book-shelf-modal .popup-wrap{
+    max-width : 500px;
+    width : 95%;
+    border: 4px solid #204d79;
+    overflow: hidden;
+}
+
+.delete-book-shelf-modal .popup-wrap > div:first-child{
+    padding : 30px 30px 50px;
+    text-align : center;
+}
+
+.delete-book-shelf-modal .popup-wrap .title{
+    margin-bottom : 30px;
+    color : #222;
+    font-size : 26px;
+}
+
+.delete-book-shelf-modal .popup-wrap .title + p{
+    margin-bottom : 20px;
+}
+
+.delete-book-shelf-modal .popup-wrap p{
+    color : #666;
+    font-size: 14px;
+}
+
+
+.delete-book-shelf-modal .popup-wrap .btn-wrap{
+    display : flex;
+}
+
+.delete-book-shelf-modal .popup-wrap .btn-wrap button{
+    flex:1;
+    height: 50px;
+    /*display: flex;*/
+    align-items: center;
+    justify-content: center;
+    border-radius: 0;
+    font-size: 16px;
+}
+
+/* 책장명 수정 */
+.edit-book-shelf-modal .popup-wrap{
+    max-width : 500px;
+    width : 95%;
+    border : 4px solid #204d79;
+    overflow:hidden;
+}
+
+.edit-book-shelf-modal .popup-wrap > div:first-child{
+    padding : 30px 30px 50px;
+}
+
+.edit-book-shelf-modal .title-wrap{
+    margin-bottom : 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.edit-book-shelf-modal .title{
+    font-size : 26px;
+    color : #222;
+}
+
+.edit-book-shelf-modal .edit-book-shelf{
+    position : relative;
+}
+
+.edit-book-shelf-modal .edit-book-shelf button{
+    position: absolute;
+    right: 0;
+    bottom: 13px;
+}
+
+.edit-book-shelf-modal .edit-book-shelf-input{
+    padding-left : 12px;
+    padding-bottom : 13px;
+    border : 0;
+    border-bottom : 1px solid #245686;
+    font-size : 14px;
+    color : #999;
+    width : 100%;
+}
+
+.edit-book-shelf-modal .popup-wrap i.close{
+    background-image : url("../images/icons/viewer/close.png");
+    width : 22px;
+    height : 22px;
+    background-repeat : no-repeat;
+}
+
+.edit-book-shelf-modal .popup-wrap .btn-wrap{
+    display : flex;
+}
+
+.edit-book-shelf-modal .popup-wrap .btn-wrap button{
+    flex:1;
+    height: 50px;
+    /*display: flex;*/
+    align-items: center;
+    justify-content: center;
+    border-radius: 0;
+    font-size: 16px;
+}
+
+/* 위두랑전송내보내기 */
+.wedo-transfer-modal .popup-wrap {
+    max-width: 500px;
+    width: 95%;
+    border: 4px solid #204d79;
+    overflow: hidden;
+}
+
+.wedo-transfer-modal .popup-wrap > div:first-child{
+    padding : 30px 30px;
+}
+
+.wedo-transfer-modal .title-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.wedo-transfer-modal .popup-wrap .title{
+    color : #222;
+    font-size : 26px;
+}
+
+.wedo-transfer-modal .popup-wrap p{
+    color : #666;
+    font-size : 14px;
+    margin-bottom : 20px;
+}
+
+.wedo-transfer-modal .wedorang_wrap {
+	max-height : 400px;
+    height : 30vh;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    width:100%;
+}
+.wedo-transfer-modal .wedorang_wrap{
+    border-top : 2px solid #999;
+   
+}  
+
+.wedo-transfer-modal ul::-webkit-scrollbar {
+    display:none;   
+}
+
+.wedo-transfer-modal li > div,
+.wedo-transfer-modal li .sub-list li > div{
+    min-height : 40px;
+    color : #666;
+    font-size : 14px;
+    padding : 12px 0;
+    border-bottom : 1px solid #dbdbdb;
+}
+.wedo-transfer-modal ul.on li img {
+	width: 11px;
+    vertical-align: middle;
+    visibility: hidden;		
+}
+.wedo-transfer-modal ul.on li:first-child img {
+    visibility: visible;		
+}
+.wedo-transfer-modal .wedorang_wrap li > div {padding-left : 10px;}
+.wedo-transfer-modal .wedorang_wrap li li > div {padding-left : 20px;}
+.wedo-transfer-modal .wedorang_wrap li li li > div {padding-left : 41.5px;}
+.wedo-transfer-modal .wedorang_wrap li li li li > div {padding-left : 62px;}
+.wedo-transfer-modal .wedorang_wrap li li li li li > div {padding-left : 83px;}
+.wedo-transfer-modal .wedorang_wrap li li li li li li > div {padding-left : 105px;}
+.wedo-transfer-modal .wedorang_wrap li li li li li li li > div {padding-left : 140px;}
+.wedo-transfer-modal .wedorang_wrap li li li li li li li li > div {padding-left : 180px;}
+
+.wedo-transfer-modal .wedorang_wrap ul{
+	display:none;
+}
+.wedo-transfer-modal .categoryList.last ul{
+	display:none;
+}
+.wedo-transfer-modal .categoryList.last ul.on{
+	display:block;
+	background:#f4f4f4;
+}
+#categorydiv ul li div img{
+	display:none;
+}
+.wedo-transfer-modal .wedorang_wrap ul.on{
+	display:block;
+	background:#f4f4f4;
+}
+.wedo-transfer-modal .wedorang_wrap > li.on{
+	background:#f4f4f4;
+}
+
+.pc .wedo-transfer-modal li > div span:hover,
+.pc .wedo-transfer-modal li .sub-list li > div span:hover{
+	color:rgb(251, 134, 39);
+}
+
+.wedo-transfer-modal li .sub-list li > div{
+    border-bottom : 0;
+    display : flex;
+    align-items : center;
+}
+
+.wedo-transfer-modal li .checkbox + label{
+    background-image : url("../images/icons/viewer/checkbox.png");
+    background-size : 20px;
+    background-repeat : no-repeat;
+    width : 20px;
+    height : 20px;
+    cursor : pointer; 
+    margin-right : 10px;
+    display : inline-block;
+    vertical-align: middle;
+}
+
+.wedo-transfer-modal li .checkbox:checked + label{
+    background-image : url("../images/icons/viewer/checkbox-on.png");
+}
+
+.wedo-transfer-modal li .checkbox + label.tag{
+    background-image : url("../images/icons/viewer/tag-off.png");
+    background-size : 100% 100%;
+    background-repeat : no-repeat;
+    width : 36px;
+    height : 22px;
+    cursor : pointer; 
+    display : inline-block;
+    vertical-align: middle;
+    text-align:center;
+}
+
+.wedo-transfer-modal li .checkbox:checked + label.tag{
+    background-image : url("../images/icons/viewer/tag-on.png");
+    color : #fff;
+}
+.wedo-transfer-modal li .sub-list{
+    display : none;
+    padding : 0 30px;
+    height : auto;
+    border-top : 0;
+    border-bottom : 1px solid #dbdbdb;
+}
+
+.wedo-transfer-modal li .sub-list.on{
+    display : flex;
+}
+
+.wedo-transfer-modal li .sub-list li{
+    border-bottom : 0;
+    flex : 1;
+}
+
+.wedo-transfer-modal .popup-wrap .btn-wrap{
+    display : flex;
+}
+
+.wedo-transfer-modal .popup-wrap .btn-wrap button{
+    flex:1;
+    height: 50px;
+    /*display: flex;*/
+    align-items: center;
+    justify-content: center;
+    border-radius: 0;
+    font-size: 16px;
+}
+
+.wedo-transfer-modal li .sub-depth3-list{
+    display : none;
+}
+
+@media screen and (max-width : 768px){
+    .wedo-transfer-modal .popup-wrap .title{
+        font-size : 1.2em;
+    }
+
+    .wedo-transfer-modal .popup-wrap .title img{
+        width : 80px;
+    }
+
+    i.close-blue{
+        width : 20px;
+        height : 20px;
+        background-size : 20px;
+    }
+
+    .wedo-transfer-modal .title-wrap{
+        margin-bottom : 20px;
+    }
+}
+
+@media screen and (max-width : 480px){
+    .wedo-transfer-modal li .sub-list{
+        padding : 0;
+        /* font-size : 0.75em; */
+    }
+
+    .wedo-transfer-modal li .sub-list li > div{
+        font-size : 0.75em;
+
+    }
+}
+
+#loading1, #loading2 {
+animation-duration :500ms;
+animation-delay: 0ms;
+animation-name:loading;
+animation-iteration-count:infinite;
+background-repeat: no-repeat;
+width:64px;
+height:64px;
+background-image:url('../images/icons/viewer/img_loading1.png');
+
+}
+
+@keyframes loading{
+ from {
+    
+transform: rotate( 0deg );
+  }
+12.5%{
+transform: rotate( 45deg );
+}
+25%{
+transform: rotate( 90deg );
+}
+
+50%{
+transform: rotate( 180deg );
+}
+62.5%{
+transform: rotate( 225deg );
+}
+75%{
+transform: rotate( 270deg );
+}
+87.5%{
+transform: rotate( 315deg );
+}
+  to {
+
+ transform: rotate( 360deg );
+  }
+}
+

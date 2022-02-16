@@ -1,0 +1,783 @@
+// === 공통 css === //
+.btn-wrap{
+    display: inline-block;
+    
+    .button{
+        color: #fff;
+        font-size: 16px;
+        border-radius: 20px;
+    }
+
+    .ico{
+        margin-left: 2px;
+        background-repeat: no-repeat;
+    }
+
+    .ico-search{
+        background-image: url(../images/search-ico.png);
+        width: 17px;
+        height: 17px;
+        vertical-align: middle;
+    }
+
+    .ico-upload{
+        background-image: url(../images/upload-ico.png);
+        width: 13px;
+        height: 13px;
+        vertical-align: middle;
+        margin-left: 2px;
+    }
+}
+
+.align-between{display: flex; justify-content: space-between;}
+
+// === 나눔마당 === //
+.share-container{
+    
+    .share-inner{
+        max-width: 1200px;
+        margin: auto;
+    }
+
+    .share-top{
+            padding: 44px 0 40px;            
+            font-size: 0;
+            background-image: url(../images/share-bg.png);
+            background-repeat: no-repeat;
+            background-position: right top 16px;
+
+            .share-tit{
+                font-size: 42px;
+                font-weight: 500;
+                letter-spacing: -1.8px;
+                color: #246eb6;
+                width: fit-content;
+                display: inline-block;
+                line-height: 1;
+            }
+            .location-wrap{
+                margin-left: -5px;
+                font-size: 0;
+                color: #222;
+                display: inline-block;
+                vertical-align: top;
+                margin-top: 10px;
+                letter-spacing: -0.5rem;
+                font-weight: 500;
+
+                li{
+                    display: inline-block;
+                    font-size: 16px;
+                    padding-left: 35px;
+                    position: relative;
+                }
+                
+                li::before{
+                    content: '';
+                    background-image: url(../images/location-arrow-ico.png);
+                    width: 6px;
+                    height: 10px;
+                    display: inline-block;
+                    position: absolute;
+                    left: 14px;
+                    top: 8px;
+                    
+                }
+
+                li:first-child::before{
+                    display: none;
+                }
+            }
+    }
+
+    .share-tab{
+        display: flex;
+        width: 100%;
+        height: 60px;
+
+        .tab-btn{
+            flex-basis: 100%;
+            background-color: #f6f6f6;
+            border: 1px solid #ddd;
+            border-radius: 10px 10px 0 0;
+            font-size: 18px;
+            color: #222;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+        }
+
+        .tab-btn.on{
+            border: 2px solid #246eb6;
+            border-bottom: 0;
+            background-color: #fff;
+            color: #246eb6;
+            height: 62px;
+            font-weight: 600;
+        }
+    }
+
+    .share-tab-wrap{
+
+        .tab{
+
+            .share-list-top{
+                max-width: 1200px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin: auto;
+                height: 80px;
+
+                .search-wrap{
+                    margin-left: -10px;
+                    font-size: 0;
+
+                    select{
+                        min-width: 140px;
+                        height: 40px;
+                        border: 1px solid #e7e7e7;
+                        background-color: #fff;
+                        color: #222;
+                        border-radius: 20px;
+                        font-size: 16px;
+                        padding: 0 20px;
+                        margin-left: 10px;
+                        background-image: url(../images/select-ico.png);
+                        background-repeat: no-repeat;
+                        background-position: right 20px top 16px;
+                    }
+                    .btn-wrap{
+                        .button{
+                            width: 95px;
+                            height: 40px;
+                            background-color: #444444;
+                            margin-left: 10px;
+                            font-weight: 400;
+                        }
+                    }
+                }
+
+                .search-wrap02{
+                    margin-left: auto;
+                    font-size: 0;
+                    input{
+                        width: 200px;
+                        height: 40px;   
+                        padding: 0 20px;
+                        border-radius: 5px 0 0 5px;
+                        border: 1px solid #e7e7e7;
+                        border-right: 0;
+                        font-size: 16px;
+                    }
+                    .search-btn{
+                        display: inline-block;
+                        vertical-align: top;
+                        width: 70px;
+                        height: 40px;
+                        font-size: 16px;
+                        border-radius: 0 5px 5px 0;
+                        background: #444444;
+                        color: #fff;
+                        text-align: center;
+                        line-height: 40px;
+
+                        .ico-search{
+                            background-image: url(../images/search-ico.png);
+                            width: 17px;
+                            height: 17px;
+                            vertical-align: middle;
+                        }
+                    }
+                }
+
+                .btn-wrap{
+                    .button{
+                        background-color: #246eb6;
+                        width: 120px;
+                        height: 40px;
+                        font-weight: 500;
+                    }
+                }
+            }
+            
+            .share-list{
+                background-color: #edf2f6;
+                min-height: 50vh;
+
+                .list-th{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding-top: 30px;
+
+                    .input-wrap{
+                        font-size: 14px;
+                        margin-left: -20px;
+                        letter-spacing: 0.01rem;
+
+                        input[type=radio]{
+                            width: 14px;
+                            height: 14px;
+                            background-image: url(../images/radio-ui.png);
+                            vertical-align: sub;
+                            margin-left: 20px;
+                        }
+                        input[type=radio]:checked{
+                            background-image: url(../images/radio-on-ui.png);
+                        }
+
+                        label{
+                            margin-left:2px;
+                            font-size: 14px;
+                            vertical-align: middle;
+                        }
+
+                        input[type=radio]:checked + label{
+                            color: #246eb6;
+                            font-weight: 500;
+                        }
+                    }
+                    
+                    .btn-wrap{
+                        font-size: 0;
+                        margin-left: -8px;
+
+                        .btn{
+                            width: 90px;
+                            height: 38px;
+                            border: 1px solid #dbdbdb;
+                            border-radius: 5px;
+                            background-color: #fff;
+                            font-size: 14px;
+                            font-weight: 400;
+                            letter-spacing: 0.01em;
+                            margin-left: 8px;
+                        }
+
+                        .btn.on{
+                            color: #246eb6;
+                            border: 1px solid #246eb6;
+                            font-weight: 600;
+                        }
+                    } 
+                }
+
+                .list-td{
+                    margin-top: -8px;
+                    display: flex;
+                    flex-wrap: wrap;
+                    width: 102.22%;
+                    margin-left: calc(-6.66% / 3);
+
+                    li{
+                        width: 25%;
+                        margin-top: 30px;
+                        padding-left: calc(6.66% / 3);
+                        
+                        .img-box{   
+                            border: 1px solid #dddddd;
+                            border-radius: 10px 10px 0 0;
+                            background-color: #fff;
+                            min-height: 220px;
+                            position: relative;
+                            overflow: hidden;
+
+                            .book-img{
+                                width: 155px;
+                                height: 197px;
+                                position: absolute;
+                                left: 50%;
+                                top: 28px;
+                                transform: translateX(-50%);
+                                overflow: hidden;
+                                box-shadow: 2px -2px 7px 0 #dedede;
+                                
+                                img{
+                                    width: 100%;
+                                }
+                            }
+                        }
+
+                        .txt-box{
+                            height: 115px;
+                            background-color: #fff;
+                            border: 1px solid #dddddd;
+                            border-top: 0;
+                            padding: 13.5px 20px;
+                            color: #888;
+                            font-size: 0;
+
+                            .list-tit{
+                                font-size: 20px;
+                                color: #444444;
+                                letter-spacing: -0.05em;
+                                font-weight: 600;
+                                text-overflow: ellipsis;
+                                overflow: hidden;
+                                white-space: nowrap;
+                                display: block;
+                                width: calc(100% - 42px);   
+                                margin-bottom: 4px;
+                                padding-right: 5px;
+                            }
+                            .del-btn{
+                                width: 42px;
+                                height: 28px;
+                                background-color: #eeeeee;
+                                border-radius: 5px;
+                                font-size: 14px;
+                                color: #444;
+                            } 
+                            .grade{
+                                font-size: 16px;
+                                letter-spacing: -0.05em;
+                                font-weight: 500;
+                            }
+                            .book-name{
+                                font-weight: 400;
+                                font-size: 16px;
+                                padding-left: 15px;
+                                position: relative;
+                            }
+                            .book-name::before{
+                                content: '';
+                                display: block;
+                                width: 3px;
+                                height: 3px;
+                                border-radius: 5px;
+                                background-color: #c4c4c4;
+                                position: absolute;
+                                top: 12px;
+                                left: 6px;
+                            }
+                            .date{
+                                margin-top: 8px;
+                                font-size: 16px;
+                                font-weight: 200;
+                                padding-left: 25px;
+                                background-image: url(../images/date-ico.png);
+                                background-size: 17px 16px;
+                                background-repeat: no-repeat;
+                                background-position: 0 center;
+                            }
+                        }
+
+                        .dl-box{
+                            height: 63px;
+                            background-color: #bfdbf0;
+                            border-radius: 0 0 10px 10px;
+                            border: 1px solid #dddddd;
+                            display: table;
+                            width: 100%;
+                            padding: 0 25px;
+                            position: relative;
+
+                            span{
+                                color: #fff;
+                                font-size: 20px;
+                                letter-spacing: -0.01em;
+                                display: table-cell;
+                                vertical-align: middle;
+                            }
+                            .dl-btn{
+                                display: block;
+                                width: 54px;
+                                height: 54px;
+                                border-radius: 55px;
+                                border: 2px solid #388bf0;
+                                background-color: #fff;
+                                font-size: 0;
+                                position: absolute;
+                                background-image: url(../images/dl-ico.png);
+                                background-repeat: no-repeat;
+                                background-position: center;
+                                top: -32px;
+                                right: 30px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .share-list02{
+                border-top: 2px solid #246eb6;
+                background-color: #edf2f6;
+                min-height: 50vh;
+
+                .book-list{
+                    width: 1200px;
+                    margin: auto;
+                    background-color: #fff;
+                    margin-top: 25px;
+                    border-radius: 10px;
+
+                    li{
+                        width : calc(99.9% / 4);
+                        padding : 30px 0;
+                        position:relative;
+                    }
+                }
+            }
+
+            .share-view{
+                padding-top: 50px;
+                background-color: #edf2f6;
+                min-height: 50vh;
+                padding-bottom: 70px;
+                
+                .share-inner{
+                    display: flex;
+                }
+                
+                .right-wrap{
+                    width: calc(100% - 310px);
+                    margin-top: -30px;
+                }    
+
+                .left-wrap{
+                    padding-right: 30px;
+                    width: 310px;
+                }    
+                .book-img{
+                    width: 275px;
+                    height: 374px;
+                    overflow: hidden;
+                    text-align: center;
+
+                    img{
+                        width: 100%;
+                    }
+                }
+                .txt{
+                    font-size: 0;
+                    margin-top: 12px;
+
+                    .ebook-title{
+                        font-size: 16px;
+                        display: inline-block;
+                        width: 60px;
+                        height: 30px;
+                        border-radius: 3px;
+                        color: #fff;
+                        font-weight: 600;
+                        text-align: center;
+                        line-height: 30px;
+                        vertical-align: top;
+                    }
+                    .ebook-name{
+                        font-size: 24px;
+                        letter-spacing: -0.05em;
+                        margin-left: 10px;
+                        font-weight: 500;
+                        line-height: 1;
+                    }
+                }
+                
+                .titleArea{
+                    padding-left: 70px;
+                    font-weight: 500;
+                    letter-spacing: -0.01em;
+                    margin-top: 4px;    
+
+                    em{
+                        color: #f08218;
+                    }
+                }
+            }
+                            
+            .table-wrap{
+                margin-top: 30px;
+                color: #222;
+
+                .tit{
+                    border: 1px solid #ddd;
+                    border-radius: 10px 10px 0 0;
+                    background-color: #f7f7f7;
+                    height: 50px;
+                    padding: 0 50px;
+
+                    span{
+                        font-size: 20px;
+                        line-height: 50px;
+                        letter-spacing: -0.01em;
+                        font-weight: 600;
+                    }
+
+                    .thumb-ico{
+                        display: inline-block;
+                        background-image: url(../images/thumb-ico.png);
+                        width: 19px;
+                        height: 18px;
+                        vertical-align: middle;
+                        margin-top: -6px;
+                    }
+                    .file-ico{
+                        display: inline-block;
+                        background-image: url(../images/file-ico02.png);
+                        width: 19px;
+                        height: 19px;
+                        vertical-align: middle;
+                        margin-top: -6px;
+                    }
+                }
+
+                ul{
+
+                    li{
+                        display: table;
+                        width: 100%;
+                        height: 50px;
+                        padding: 0 50px;
+                        background-color: #fff;
+                        border-left: 1px solid #ddd;
+                        border-right: 1px solid #ddd;
+                        letter-spacing: -0.01em;
+
+                        span{
+                            display: table-cell;
+                            vertical-align: middle;
+                            text-align: center;
+                        }
+
+                        span:nth-child(2){
+                            width: 15.8%;
+                        }
+
+                        .align_l{
+                            text-align: left;
+                            padding-left: 15px;
+                        }
+
+                        .order{
+                            font-weight: 600;
+                        }
+
+                        .like{
+
+                            em{
+                                font-weight: 600;
+                                color: #ee623d;
+                            }
+                        }
+                        .like::before{
+                            content: '';
+                            display: inline-block;
+                            background-image: url(../images/like-ico02.png);
+                            width: 15px;
+                            height: 15px;
+                            vertical-align: middle;
+                            margin-right: 2px;
+                        }
+                        .plus{
+
+                            em{
+                                font-weight: 600;
+                                color: #2a95d9;
+                            }
+                        }
+                        .plus::before{
+                            content: '';
+                            display: inline-block;
+                            background-image: url(../images/add-ico02.png);
+                            width: 14px;
+                            height: 14px;
+                            vertical-align: middle;
+                            margin-right: 2px;
+                        }
+                    }
+
+                    li:last-child{
+                        border-bottom: 1px solid #ddd;
+                        border-radius: 0 0 10px 10px;
+                    }
+
+                    li:nth-child(2n){
+                        background-color: #fafafa;
+                    }
+                }
+            }
+        }
+    }
+} 
+
+// === 팝업 === //
+.popupLayer.share{
+
+    select{
+        width: calc(100% - 36px);
+        height: 40px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 0 18px;
+        font-size: 16px;
+        font-weight: 500;
+        background-image: url(../images/select-ico.png);
+        background-repeat: no-repeat;
+        background-position: right 18px center;
+    }
+
+    input[type=text]{
+        width: calc(100% - 36px);
+        height: 40px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 0 18px;
+        font-size: 16px;
+    }
+
+    .input-file{
+        
+        input[type=file]{
+            display: none;
+        }
+
+        input[type=file]+label{
+            display: block;
+            width: 100px;
+            height: 30px;
+            border-radius: 5px;
+            background-color: #444444;
+            color: #fff;
+            font-size: 14px;
+            text-align: center;
+            font-weight: 200;
+            line-height: 30px;
+            letter-spacing: -0.01em;
+        }
+        
+        .file-list{
+            all: unset;
+
+            li{
+                padding: 2px 0 0 22px;
+                color: #444;
+                font-size: 12px;
+                background-image: url(../images/file-ico.png);
+                background-repeat: no-repeat;
+                background-position: left center;
+            }
+            .del-btn{
+                background-image: url(../images/del-ico.png);
+                width: 14px;
+                height: 14px;
+                vertical-align: middle;
+            }
+        }
+    }
+
+    
+    .table-wrap{
+        margin: 0 25px 30px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        color: #222;
+
+        .table-row{
+            border-bottom: 1px solid #ddd;
+            min-height: 50px;
+            display: table;
+            width: 100%;
+    
+            .tit{
+                width: 147px;
+                border-right: 1px solid #ddd;
+                display: table-cell;
+                text-align: center;
+                vertical-align: middle;
+                background-color: #f6f6f6;
+            }
+            .cont{
+                display: table-cell;
+                vertical-align: middle;
+                padding: 5px 0 5px 32px;
+            }
+        }
+
+        .table-row:last-child{
+            border-bottom: 0;
+        }
+    }
+
+    .view-wrap{
+        .preview-wrap{
+            height: 230px;
+            width: 100%;
+            margin: 0 30px;
+        }
+
+        .feeling-wrap{
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 0 30px;
+            height: 70px;
+
+            .button-wrap{
+                width: fit-content;
+                margin: auto;
+                height: inherit;
+
+                .btn{
+                    display: inline-block;
+                    height: inherit;
+                    padding: 0 20px;
+                    font-size: 14px;
+                }
+
+                .btn.on{
+                    color: #3480dd;
+                }
+
+                .good-ico{
+                    display: block;
+                    background-image: url(../images/good-ico.png);
+                    width: 30px;
+                    height: 30px;
+                    margin: auto;
+                }
+                .soso-ico{
+                    display: block;
+                    background-image: url(../images/soso-ico.png);
+                    width: 30px;
+                    height: 30px;
+                    margin: auto;
+                }
+                .sad-ico{
+                    display: block;
+                    background-image: url(../images/sad-ico.png);
+                    width: 30px;
+                    height: 30px;
+                    margin: auto;
+                }
+            }
+        }
+    }
+
+    .popupBtnArea{
+        margin: 30px 0;
+
+        .btn{
+            background-color: #246eb6;
+            width: 100px;
+            height: 40px;
+            color: #fff;
+            font-size: 16px;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 5px;
+            margin: auto;
+        }
+
+        .sync-btn{
+            width: 202px;
+            
+            .sync-ico{
+                display: inline-block;
+                background-image: url(../images/sync-ico.png);
+                width: 15px;
+                height: 14px;
+                margin: auto;
+            }
+        }
+    }
+
+}

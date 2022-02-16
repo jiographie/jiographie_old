@@ -1,0 +1,282 @@
+header .top{
+    display : flex;
+    justify-content: space-between;
+    height : 50px;
+    padding : 0 30px;
+    align-items: center;
+  /* box-shadow: 0 6px 8px rgba(21, 61, 92, .26); */
+    position:fixed;
+    width:100%;
+  top: 0;
+    z-index:4;
+  background: #246eb6 url('../images/top_bg.png') right top/auto 100% no-repeat;
+}
+
+header .top .title{
+    color : #fff;
+  font-size: 18px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%)
+}
+
+header .top .title a {
+  cursor: default
+}
+
+header .top .title span {
+  vertical-align: middle;
+  line-height: 46px;
+  margin-left: 2px;
+}
+header .top .title img.download{
+    margin-right : 10px;
+    margin-bottom: 15px;
+}
+header .top .title img.logo{
+    margin-bottom: 7px;
+}
+header .top .right img.download{
+    margin-right : 10px; 
+}
+header .top .logo img{
+	cursor:pointer;
+}
+header .top .menu .topleft,
+header .top .menu i,
+header .top .right i{
+	margin-bottom:3px;
+}
+/*
+.pc header .top img:hover{
+	opacity:0.5;
+}
+*/
+/* �뒳�씪�씠�뱶 硫붾돱 */
+header .menu .sub{
+    position : fixed;
+    top : 0;
+    left : -285px;
+    height : 100vh;
+    background-color : #fff;
+    width : 285px;
+    transition : left 1s;
+    z-index : 11;
+    overflow-x:hidden;
+    overflow-y:auto;
+}
+header .menu .sub-bg{
+    display : none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.5);
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+}
+
+header .menu .profile{
+    background-color : #245686;
+    display : flex;
+    color : #fff;
+    padding-top:45px;
+    padding-bottom:35px;
+    padding-right:25px;
+    padding-left:10px;
+
+}
+
+header .menu .profile .image{
+    float:left;
+    cursor:pointer;
+}
+header .menu .profile .image img{
+    border-radius : 50%;
+	width:50px;
+	height:50px;
+}
+header .menu .profile .info{
+    font-weight : 700;
+	margin-left:10px;
+}
+header .menu .profile .info .school{
+	font-size:0.85em;
+}
+header .menu .profile .name span{
+    font-size : 20px;
+}
+
+header .menu .profile .name{
+    font-size : 16px;
+    margin-bottom : 8px;
+}
+
+header .menu .profile .scool{
+    font-size : 12px;
+}
+
+header .menu .profile .close{
+    position : absolute;
+    top : 15px;
+    right : 20px;
+}
+header .menu .profile .logout {
+    position: absolute;
+    top: 82px;
+    right: 20px;
+    border: 1px solid #FFF;
+    color: #FFF;
+    border-radius: 3px;
+    font-family: Noto Sans KR,Apple SD Gothic Neo,sans-serif;
+}
+
+header .menu .profile .modify {
+    position: absolute;
+    top: 52px;
+    right: 20px;
+    border: 1px solid #FFF;
+    color: #FFF;
+    border-radius: 3px;
+    width:74.7188px;
+    font-family: Noto Sans KR,Apple SD Gothic Neo,sans-serif;
+}
+header .menu-list li{
+    font-size : 16px;
+    height : 60px;
+    padding-left : 20px;
+    /*display : flex;*/
+    align-items: center;
+    border-bottom : 1px solid #ebebeb;
+    cursor : pointer;
+    transition : transform 0.7s;
+}
+
+.pc header .menu-list li:hover{
+    transform : scale(1.05);
+}
+header .menu-list li i,
+header .menu-list li img{
+    position:absolute;
+    margin: 18px 0;
+    height: 23px;
+    width: auto;
+}
+header .menu-list li img.cls{
+    margin-top: 11px;
+    height: 38px;
+    width: auto;
+}
+header .menu-list li em{
+	display:flex;
+	padding:17px 0;
+	padding-left:45px;
+}
+
+header .menu-list li span{
+    position: absolute;
+    color: #fff;
+    background-color: red;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    left: 30px;
+    font-size : 10px;
+    font-weight: 700;
+    display : flex;
+    align-items: center;
+    justify-content: center;
+    font-style : normal;
+    margin-top:10px;
+}
+
+header .menu .cs{
+    font-weight : 700;
+    padding:50px 0;
+    text-align:center;
+    width:100%;
+}
+
+header i.logo{
+    margin-right : 10px;
+}
+
+
+header .right{
+    display : flex;
+    align-items: center;
+    height : 50px;
+    margin-right:-30px;
+}
+
+header .right .menu{
+    width : 36px;
+    height : 50px;
+    display : flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header .right .menu.on{
+    background-color : #245686;
+    z-index : 1;
+    border-radius : 5px 0 0 0;
+}
+
+header .right .menu-list{
+    display : none;
+    position: absolute;
+    width : 110px;
+    top : 50px;
+    right : 0;
+    background-color : #245686;
+    color : #fff;
+    border-radius : 5px 0 5px 5px;
+    font-size : 13px;
+    font-weight : 700;
+}
+header .right .menu-list a{
+	width:100%;
+}
+
+header .right .menu-list.on{
+    display : block;
+    z-index:1;
+}
+
+header .right .menu-list li{
+    border-bottom : 1px solid #2f6496;
+    padding : 0 10px;
+    font-size : 14px;
+    height : 40px;
+    display : flex;
+    align-items: center;
+}
+
+header .right .menu-list li:last-child{
+    border-bottom : 0;
+}
+
+header .right i.download{
+    margin-right : 7px;
+}
+
+header .right i.right-menu{
+    padding : 0 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+header .right button.school{
+	color:white;
+	padding:2px 5px;
+	margin-right:20px;
+	border:1px solid white;
+	border-radius:5px;
+	margin-bottom:2px;
+}
+
+@media screen and (max-width : 480px){
+	header .top .title:not(.store){
+		left:35%;
+	}
+}

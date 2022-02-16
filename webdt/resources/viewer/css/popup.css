@@ -1,0 +1,535 @@
+/* 팝업 */
+.popup-modal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /*height: 100vh;*/
+    flex-direction: column;
+    z-index : 9999;
+    bottom:0;
+}
+
+.popup-modal.on{
+    display : flex;
+}
+
+.popup-modal .popup-wrap{
+    background-color : #fff;
+    border-radius : 10px;
+}
+
+.popup-modal .btn-gray{
+    color : #fff;
+    background-color : #999;
+}
+
+/* 도움말 팝업 */
+.popup-modal.help_popup .popup-wrap{
+    background-color : transparent;
+}
+
+.help_popup .swiper-slide{
+    max-width : 740px;
+    width : 300px;
+    height: 465px;
+    background-color : #fff;
+    border-radius : 5px;
+    display : flex;
+    align-items: center;
+    justify-content: center;
+    font-size : 20px;
+    color : #666;
+    margin : 0 auto;
+}
+.help_popup  .swiper-button-prev{
+    width : 58px;
+    height : 80px;
+    background-image : url("../images/help/slide-left.png");
+}
+
+.help_popup .swiper-button-next{
+    width : 58px;
+    height : 80px;
+    background-image : url("../images/help/slide-right.png");
+}
+
+.help_popup .swiper-button-prev:after,
+.help_popup .swiper-button-next:after{
+    content : '';
+}
+
+
+.help_popup .swiper-button-prev, .help_popup .swiper-button-next{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.help_popup .swiper-button-prev{
+    left : 0;
+}
+
+.help_popup .swiper-button-next{
+    right : 0;
+}
+
+/* FAQ */
+.popup-modal.faq-popup .popup-wrap{
+    padding-top : 30px;
+    max-width : 600px;
+    width : 95%;
+    border : 4px solid #204d79;
+    border-radius : 10px;
+    overflow:hidden;
+}
+
+.faq-popup .title-wrap{
+    display : flex;
+    justify-content: space-between;
+    margin-bottom : 30px;
+    padding : 0 30px;
+}
+
+.faq-popup .title-wrap .btn-wrap{
+    display : flex;
+    align-items : center;
+} 
+
+.faq-popup .btn-refresh{
+    padding-right : 20px;
+}
+
+.faq-popup .btn-refresh:after{
+    border-right : 1px solid #dbdbdb;
+    height : 20px;
+    content : '';
+    margin-left : 20px;
+}
+
+.faq-popup ul{
+    padding : 0 30px;
+    max-height: 360px;
+    height : 45vh;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+}
+
+.faq-popup ul::-webkit-scrollbar {
+    display:none;   
+}
+
+.faq-popup li{
+    padding : 0 10px;
+}
+
+.faq-popup .title-wrap .title{
+    font-size : 26px;
+    color : #222;
+}
+
+.faq-popup li.title{
+    border-top : 2px solid #999;
+    border-bottom : 1px solid #dbdbdb;
+    font-size : 14px;
+    color : #666;
+    display : flex;
+    justify-content: center;
+    padding : 10px 0;
+    word-break : keep-all;
+}
+
+.faq-popup li.title > span.date{
+    color : #999;
+    margin-left : 40px;
+    white-space: nowrap;
+}
+
+.faq-popup li.content, .faq-popup li.content2{
+    font-size : 14px;
+    color : #666;
+    padding-top : 30px;
+    padding-bottom : 50px;
+}
+
+.faq-popup li.content2{
+    padding-bottom : 60px;
+    border-bottom : 1px solid #dbdbdb;
+}
+
+.faq-popup li.prev, .faq-popup li.next{
+    height : 40px;
+    display : flex;
+    align-items: center;
+    border-bottom : 1px solid #dbdbdb;
+    font-size : 14px;
+    color : #666;
+}
+
+.faq-popup li.prev span, .faq-popup li.next span{
+    margin-right : 20px;
+}
+
+.faq-popup li.next{
+    margin-bottom : 50px;
+}
+
+.faq-popup .popup-wrap > .btn-wrap{
+    display : flex;
+    flex-wrap : wrap;
+}
+
+.faq-popup .popup-wrap > .btn-wrap button{
+    width : 50%;
+    height : 50px;
+    /*display : flex;*/
+    align-items: center;
+    justify-content: center;
+    border-radius : 0;
+    font-size : 0.8em;
+}
+
+.notice-faq-popup-list ul{
+    border-top : 2px solid #999;
+    overflow-y : scroll;
+}
+
+.notice-faq-popup-list ul li{
+    padding : 13px 0;
+    display : flex;
+    justify-content: space-between;
+    border-bottom : 1px solid #dbdbdb;
+    background-color : #fff;
+    cursor : pointer;
+}
+
+.notice-faq-popup-list ul li > div{
+    font-size: 14px;
+}
+
+.notice-faq-popup-list ul li .title{
+    color : #666;
+    padding-left : 10px;
+    word-break : keep-all;
+}
+
+.notice-faq-popup-list ul li .date{
+    color : #999;
+    white-space: nowrap;
+    padding-right : 10px;
+    margin-left : 40px;
+}
+
+.notice-faq-popup-list ul li.on{
+    background-color : #f4f4f4;
+}
+
+.notice-faq-popup-list ul li.on > div{
+    color : #fb8627;
+}
+
+/* 프로필 */
+.profile-popup .popup-wrap{
+    width : 500px;
+    max-width : 95%;
+    border : 4px solid #204d79;
+    overflow:hidden;
+}
+
+.profile-popup .popup-wrap > div:first-child{
+    padding : 30px 30px 50px;
+}
+
+.profile-popup .title-wrap{
+    margin-bottom : 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile-popup .title{
+    font-size : 26px;
+    color : #222;
+}
+
+.profile-popup .profile{
+    background-color : #f4f4f4;
+    padding : 20px;
+    display : flex;
+    font-size : 14px;
+    color : #666;
+}
+
+.profile-popup .profile .image{
+    margin-right : 20px;
+}
+
+.profile-popup .profile ul{
+    display : flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.profile-popup .btn-wrap{
+    display : flex;
+    flex-wrap : wrap;
+}
+
+.profile-popup .btn-wrap button{
+    width : 50%;
+    height : 50px;
+    /*display : flex;*/
+    align-items: center;
+    justify-content: center;
+    border-radius : 0;
+    font-size : 16px;
+}
+
+/* 인증 창 */
+.certification-popup .popup-wrap{
+    max-width : 500px;
+    width : 95%;
+    border : 4px solid #204d79;
+    overflow:hidden;
+}
+
+.certification-popup .popup-wrap > div:first-child{
+    padding : 30px 30px 50px;
+}
+
+.certification-popup .title-wrap{
+    margin-bottom : 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.certification-popup .title{
+    font-size : 26px;
+    color : #222;
+}
+
+.certification-popup .certification-input{
+    padding-left : 12px;
+    padding-bottom : 13px;
+    border : 0;
+    border-bottom : 1px solid #245686;
+    font-size : 14px;
+    color : #999;
+    width : 100%;
+}
+
+.certification-popup .error{
+    padding : 0 !important;
+    height : 150px;
+    display : flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.certification-popup i{
+    margin-right : 10px;
+}
+
+.certification-popup p{
+    margin-bottom : 20px;
+    font-size : 14px;
+    color : #666;
+}
+
+.certification-popup p:last-child{
+    margin-bottom : 0;
+}
+
+.certification-popup .btn-wrap{
+    display : flex;
+    flex-wrap : wrap;
+}
+
+.certification-popup .btn-wrap button{
+    width : 50%;
+    height : 50px;
+    display : flex;
+    align-items: center;
+    justify-content: center;
+    border-radius : 0;
+    font-size : 16px;
+}
+
+.certification-popup .btn-wrap button.btn-close{
+    width : 100%;
+}
+
+/* 학습커뮤니티 팝업 */
+.learning_community_popup .popup-wrap{
+    max-width : 500px;
+    width: 95%;
+    border : 4px solid #204d79;
+    padding : 30px 30px 50px;
+}
+
+.learning_community_popup .title-wrap{
+    display : flex;
+    justify-content: space-between;
+    margin-bottom : 30px;
+}
+
+.learning_community_popup .title-wrap .title{
+    font-size : 26px;
+    color : #222;
+    font-weight:800;
+}
+.learning_community_popup .title-wrap .title div{
+	font-weight:300;
+	font-size : 13px;
+	color : #666;
+}
+
+.learning_community_popup .title-wrap .title img{
+    margin-right : 10px;
+}
+.learning_community_popup .title-wrap .title img:hover{
+	opacity:1;
+}
+
+.learning_community_popup ul{
+    display : flex;
+    justify-content: space-between;
+}
+
+.learning_community_popup li{
+    border : 1px solid #204d79;
+    border-radius : 5px;
+    max-width : 200px;
+    width : 48%;
+    padding:15px 0;
+    font-size : 14px;   
+}
+
+
+.learning_community_popup li a,.learning_community_popup li button{
+    width : 100%;
+    height : 100%;
+    color : #245686;
+    /*display : flex;*/
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.pc .learning_community_popup li a,.learning_community_popup li button:hover{
+	opacity:0.5;
+}
+.learning_community_popup li a img,.learning_community_popup li button img{
+    margin-bottom: 10px;
+}
+
+/* 내서재 - 다운로드 완료 팝업 */
+.download-complete-popup .popup-wrap{
+    max-width : 500px;
+    width : 95%;
+}
+
+.download-complete-popup .popup-wrap > div:first-child{
+    border-radius : 5px 5px 0 0;
+    border : 4px solid #204d79;
+    border-bottom : 0;
+    padding : 30px 30px 50px;
+    text-align : center;
+    font-size : 14px;
+}
+
+.download-complete-popup .popup-wrap > div:first-child p{
+    line-height : 20px;
+    margin-bottom : 20px;
+}
+
+.download-complete-popup .popup-wrap > div:first-child p:last-child{
+    margin-bottom : 0;
+}
+
+.download-complete-popup .popup-wrap > div:first-child .title{
+    font-size: 26px;
+    margin-bottom : 30px;
+}
+
+.download-complete-popup .btn-wrap{
+    height : 55px;
+    width : 100%;
+    border-radius : 0 0 5px 5px;
+    display : flex;
+    align-items : center;
+    justify-content: center;
+    border : 4px solid #204d79;
+    border-top : 0;
+    font-size : 16px;
+}
+
+.download-complete-popup .btn-wrap button{
+    flex : 1;
+    height : 100%;
+    border-radius : 0;
+    font-size : inherit;
+}
+
+
+
+@media screen and (max-width : 480px){
+	.popup-wrap > div:first-child{
+		padding:15px 15px 15px !important;
+	}
+	.learning_community_popup .popup-wrap{
+		padding:20px 20px 20px;
+	}
+    .learning_community_popup .title-wrap .title,
+    .faq-popup .title-wrap .title,
+    .profile-popup .title
+    {
+        font-size: 20px;
+    }
+
+    .learning_community_popup .title-wrap .title img{
+        width : 80px;
+    }
+
+    #popup-modal .popup-wrap{
+        width : 90% !important;
+    }
+
+    .faq-popup li.title,
+    .faq-popup li.content2,
+    .faq-popup li.prev, 
+    .faq-popup li.next{
+        font-size : 14px;
+    }
+
+    .faq-popup li.title{
+        flex-direction: column;
+    }
+
+    .faq-popup li.title > span.date{
+        margin-top : 20px;
+        margin-left : 0;
+    }
+
+    .faq-popup li.prev span, 
+    .faq-popup li.next span{
+        white-space: nowrap;
+    }
+
+    .notice-faq-popup-list ul li{
+        flex-direction: column;
+    }
+
+    .notice-faq-popup-list ul li .title{
+        padding-left : 0;
+    }
+
+    .notice-faq-popup-list ul li .date{
+        margin-top : 20px;
+        margin-left : 0;
+        padding-right : 0;
+    }
+
+}

@@ -1,0 +1,471 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8" />
+    
+    <meta name="keywords" content="AllInOne, ePub, Viewer, 디지털교과서 뷰어">
+    <meta name="description" content="AllInOne ePub Viewer">
+    <meta name="author" content="realmani">
+
+    <title>디지털교과서</title>
+
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"> <!-- Force latest IE rendering engine & Chrome Frame -->
+	<meta name="format-detection" content="telephone=no" /> <!-- 윈10 엣지 전화번호 형태의 링크속성 없앰. -->
+
+    <link rel="shortcut icon" href="./favicon.ico" />
+    
+    <!-- <link rel="stylesheet" href="css/bundle.min.css"> -->
+    <link rel="stylesheet" href="css/spectrum.css">
+    <link rel="stylesheet" href="css/rangeslider.css">
+    <link rel="stylesheet" href="css/toastr.css">
+    
+    <link rel="stylesheet" href="css/style.css"> 
+    <link rel="stylesheet" href="css/swiper.css">
+    <link rel="stylesheet" href="css/popup.css">
+    <link rel="stylesheet" href="css/viewer.css">
+	<style>
+	body { overscroll-behavior: contain; width:100%; height:10px; overflow: hidden;}
+    /*#app-container{height:10px; overflow:hidden;} */
+    footer > div{max-width:1010px;}
+    .viewer-popup{ overflow-y :hidden;}
+    .list-menu__textbook-list ul{overflow-y:scroll;}
+    .contents-list-list{max-height:100%;}
+    .highlight-list{overflow-y:scroll;}
+    .search-contents .search-result-contents{display:block;}
+    .viewer-popup-bg{z-index:1;}
+    .search-contents .search-result-contents .search-result-image{height:auto;}
+    .search-contents .search-result-contents .search-result-desc{height:auto;}
+    .record-button button{display:none;}
+    .record-button button.on{display:inline-block;}
+    .wedorang_community_file_wrap{display:none; width:100%;}
+    #wedorang_community_list .default{display:none;}
+	#wedorang_community_fileList .off{display:none;}  
+	#fileAdd{display:none;}
+	#bookmark_Left, #bookmark_Right{
+		cursor:pointer;
+	}
+    .disable {
+		opacity: 0.3;
+	}
+	.default {
+		display:none;
+	}
+	.empty{
+		display:none;
+	}
+	#wedorang_send_popup .wedorang_dep1.empty .empty{
+		display:block;
+	}
+	#wedorang_send_popup .wedorang_dep2 {
+		background:rgb(239,217,224);
+	}
+	.off{
+		display:none;
+	}
+	#wedorang_send_popup .wedorang_dep3.empty .empty{
+		display:block;
+	}
+	#wedorang_send_popup.memo .wedorang_dep2 .hmwk,
+	#wedorang_send_popup.memo .wedorang_dep2 .folder,
+	#wedorang_send_popup.memo .attachFileName {
+		display:none;
+	}
+	</style>
+<script>
+var contextRoot = "";
+var contextResourceRoot="";
+</script>
+</head>
+
+<body>
+	<section id="app-container" class="viewer">
+		<div class="content">
+
+		</div>
+
+		<!-- 페이지 바로가기 -->
+		<div class="menu-toggle paging-menu-toggle" id="thumbnailLayer">
+			<button id="btn_thumbnail">
+				<i class="down"></i>
+			</button>
+		</div>
+		<div id="paging">
+			<div class="paging-menu">
+				<span>페이지<br>바로가기
+				</span>
+				<div class="page-input">
+					<form name="" method="" action="">
+						<input id="input_go_pagenumber" type="tel" maxlength="3" name="">
+						<button id="click_go_pagenumber">GO</button>
+					</form>
+				</div>
+				<!-- <button id="btn_thumbnail">닫기</button> -->
+			</div>
+			<div class="page-list-wrap">
+				<div class="swiper-container gallery-thumbs">
+					<div class="page-list swiper-wrapper">
+					</div>
+				</div>
+				<div class="swiper-slide default">
+					<div class="label">
+						<img src="images/icons/viewer/label.png" class="label">
+					</div>
+					<div class="book-image">
+						<img src="images/icons/viewer/default_cover.jpg">
+					</div>
+					<div class="book-page-num">
+						2
+					</div>
+				</div>
+				<div class="page-list-bar">
+					<div class="now-page-bar" style="width: calc(100%/ 20 * 17);">
+						<div class="page-bar-circle">
+							<div class="now-page-num">
+								17
+								<div class="down-arrow"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<div id="footer_container" class="menu-toggle" style="bottom: 100px;">
+		<button id="btn_B_menu">
+			<i class="up"></i>
+		</button>
+	</div>
+	<footer id="footer_menu">
+		<div class="menu-button clear on" style="max-width: 1040px;">
+			<button id="btn_mylibrary">
+				<span>내 서재</span> <img src="images/icons/viewer/my_library.png">
+			</button>
+			<button id="btn_toc">
+				<span>차례</span> <img src="images/icons/viewer/list.png">
+			</button>
+			<button id="btn_folder" class="mo_none">
+				<span>내 자료함</span> <img src="images/icons/viewer/my_files.png">
+			</button>
+			<button id="btn_sync" class="mo_none" style="display: none;">
+				<span>동기화</span> <img src="images/icons/viewer/sync.png">
+			</button>
+			<button id="btn_zoomin">
+				<span>확대</span> <img src="images/icons/viewer/plus.png">
+			</button>
+			<button id="btn_zoomout">
+				<span>축소</span> <img src="images/icons/viewer/minus.png">
+			</button>
+			<button id="btn_note" class="mo_none" style="display: none;">
+				<span>노트</span> <img src="images/icons/viewer/note.png">
+			</button>
+			<button id="btn_drawing">
+				<span>펜쓰기</span> <img src="images/icons/viewer/pen.png">
+			</button>
+			<button id="btn_pagemode" class="mo_none">
+				<span>단면/양면</span> <img src="images/icons/viewer/paper.png">
+			</button>
+			<button id="btn_search" class="mo_none">
+				<span>검색</span> <img src="images/icons/viewer/search.png">
+			</button>
+			<button id="btn_community" class="mo_none">
+				<span>커뮤니티</span> <img src="images/icons/viewer/community.png">
+			</button>
+			<button id="btn_print" class="mo_none">
+				<span>인쇄</span> <img src="images/icons/viewer/print.png">
+			</button>
+			<button id="btn_help" class="mo_none">
+				<span>도움말</span> <img src="images/icons/viewer/help.png" alt="도움말">
+			</button>
+			<button id="" class="mo_none"> <!-- 2021-08-05 : 클래스(모둠) 추가 -->
+				<span>클래스(모둠)</span> <img src="images/icons/viewer/classroom.png" alt="클래스(모둠)">
+			</button>
+			<button id="btn_share" class="mo_none" tabindex="0">
+				<span>URL 복사</span> <img src="images/icons/viewer/ico-42-urlduplicate.svg" alt="URL 복사">
+			</button>
+			<button id="btn_thumbnail"> <!-- onclick="go_to_page(); -->
+				<span>
+					<span class='mo_none'>페이지 이동</span> 
+					<span class="pc_none">이동</span>
+				</span>
+				<img src="images/icons/viewer/menu.png">
+			</button>
+			<button id="btn_more" class="pc_none">
+				<span>더보기</span>
+				<img src="images/icons/viewer/more.png">
+			</button>
+		</div>
+	</footer>
+	<ul id="viewer-more">
+		<li id="btn_folder">내 자료함</li>
+		<li id="btn_sync">동기화</li>
+		<li id="btn_pagemode">단면/양면</li>
+		<li id="btn_note">노트</li>
+		<li id="btn_search">검색</li>
+		<li id="btn_community">커뮤니티</li>
+		<li id="btn_print">인쇄</li>
+		<li id="btn_help">도움말</li>
+	</ul>
+
+	 <!-- 2021-08-05 : 클래스(모둠) 추가 -->
+	<div id="" class="popup-modal classroom-modal" style="display: flex;">
+		<div class="popup-wrap">
+			<div>
+				<div class="title-wrap">
+					<div class="title">클래스 가입하기</div>
+					<button class="cancel">
+						<img class="close-blue" src="images/icons/close-blue.png" alt="닫기">
+					</button>
+				</div>
+			</div>
+
+      <div>
+        <div class="scroll-box">
+          <div class="classroom-teacher">
+            <div class="inner">
+              <h3>우리 학교 선생님</h3>
+              <ul>
+                <li>
+                  <button class="btn class teacher">박경민</button> 
+                </li>
+                <li>
+                  <button class="btn class teacher on">박경민</button> 
+                </li>
+                <li>
+                  <button class="btn class teacher">박경민</button> 
+                </li>
+                <li>
+                  <button class="btn class teacher">박경민</button> 
+                </li>
+                <li>
+                  <button class="btn class teacher">박경민</button> 
+                </li>
+                <li>
+                  <button class="btn class teacher">박경민</button> 
+                </li>
+                <li>
+                  <button class="btn class teacher">박경민</button> 
+                </li>
+                <li>
+                  <button class="btn class teacher">박경민</button> 
+                </li>
+                <li>
+                  <button class="btn class teacher">박경민</button> 
+                </li>
+                <li>
+                  <button class="btn class teacher">박경민</button> 
+                </li>
+                <li>
+                  <button class="btn class teacher">박경민</button> 
+                </li>
+                <li>
+                  <button class="btn class teacher">박경민</button> 
+                </li>
+                <li>
+                  <button class="btn class teacher">박경민</button> 
+                </li>
+                <li>
+                  <button class="btn class teacher">박경민</button> 
+                </li>
+                <li>
+                  <button class="btn class teacher">박경민</button> 
+                </li>
+                <li>
+                  <button class="btn class teacher">박경민</button> 
+                </li>                                                                                                                                                                                                                  
+              </ul>
+            </div>
+          </div>
+
+          <div class="classroom-list">
+            <div class="inner">
+              <div class="list-top">
+                <div class="btn-wrap">
+                  <button id="" class="an-a">
+                    <span class="an-i class class-sort"></span><span class="an-t">정렬</span>
+                  </button> 
+                </div>
+
+                <div class="search-wrap">
+                  <div class="search">
+                    <input type="text" id="" title="검색바" placeholder="클래스 or 학년 및 반을 검색해보세요." class="search-input">
+                  </div>
+                </div>
+              </div>
+
+              <div class="list-th">
+                <span>학년 및 반</span>
+                <span>클래스(모둠) 명</span>
+                <span>인원</span>
+                <span>참여</span>
+              </div>
+  
+              <div class="list-td">
+                <ul>
+                  <li>
+                    <div class="items">
+                      <span>1학년 15반</span>
+                      <span class="txt">
+                        <span>모여라 꿈동산</span>
+                        <span class="icon-svg class new">신규</span>
+                      </span>
+                      <span>24명</span>
+                      <span>
+                        <span class="btn class join">가입</span>
+                      </span>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="items">
+                      <span>1학년 15반</span>
+                      <span class="txt">
+                        <span>텍스트가 넘치네요텍스트가 넘치네요텍스트가 넘치네요텍스트가 넘치네요텍스트가 넘치네요</span>
+                        <span class="icon-svg class new">신규</span>
+                      </span>
+                      <span>241224명</span>
+                      <span>
+                        <span class="btn class joined">참여함</span>
+                      </span>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="items">
+                      <span>1학년 15반</span>
+                      <span class="txt">
+                        <span>모여라 꿈동산</span>
+                      </span>
+                      <span>24명</span>
+                      <span>
+                        <span class="btn class join">가입</span>
+                      </span>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="items">
+                      <span>1학년 15반</span>
+                      <span class="txt">
+                        <span>모여라 꿈동산</span>
+                      </span>
+                      <span>24명</span>
+                      <span>
+                        <span class="btn class join">가입</span>
+                      </span>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="items">
+                      <span>1학년 15반</span>
+                      <span class="txt">
+                        <span>모여라 꿈동산</span>
+                      </span>
+                      <span>24명</span>
+                      <span>
+                        <span class="btn class join">가입</span>
+                      </span>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="items">
+                      <span>1학년 15반</span>
+                      <span class="txt">
+                        <span>모여라 꿈동산</span>
+                      </span>
+                      <span>24명</span>
+                      <span>
+                        <span class="btn class join">가입</span>
+                      </span>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="items">
+                      <span>1학년 15반</span>
+                      <span class="txt">
+                        <span>모여라 꿈동산</span>
+                      </span>
+                      <span>24명</span>
+                      <span>
+                        <span class="btn class join">가입</span>
+                      </span>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="items">
+                      <span>1학년 15반</span>
+                      <span class="txt">
+                        <span>모여라 꿈동산</span>
+                        <span class="icon-svg class new">신규</span>
+                      </span>
+                      <span>24명</span>
+                      <span>
+                        <span class="btn class join">가입</span>
+                      </span>
+                    </div>
+                  </li>                                                                                                
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+		</div>
+	</div>
+
+  <!-- 2021-08-05 : 클래스(모듬) 추가 -->
+  <div id="" class="popup-modal classroom-modal">
+    <div class="popup-wrap join">
+      <div>
+        <div class="title-wrap">
+          <div class="title">클래스 가입하기</div>
+          <button class="cancel">
+            <img class="close-blue" src="images/icons/close-blue.png" alt="닫기">
+          </button>
+        </div>
+      </div>
+
+      <div class="">
+        <div class="row">
+          <p class="txt">
+            클래스(모둠)명 입력
+          </p>
+          <div class="inputBox">
+            <input type="text" id="" value="한국중학교 여름나기" title="클래스(모둠)명" readonly>
+          </div>
+        </div>
+
+        <div class="row">
+          <p class="txt">
+            대상 학년 및 반
+          </p>
+          <div class="inputBox">
+            <input type="text" id="" value="'모든학생' 또는 '00학년 00반'" title="대상 학년 및 반" readonly>
+          </div>
+        </div>
+
+        <div class="row">
+          <p class="txt">
+            가입인원
+          </p>
+          <div class="inputBox">
+            <input type="text" id="" value="17명" title="가입 인원" readonly>
+          </div>
+        </div>
+
+        <div class="row">
+          <p class="txt">
+            비밀번호<span class="icon-svg class requisite">
+          </p>
+          <div class="inputBox">
+            <input type="password" id="" value="" placeholder="클래스 가입을 위해서는 이곳에 비밀번호를 입력해야 합니다." title="비밀번호">
+          </div>
+        </div>
+      </div>
+
+      <div class="popupBtnArea">
+        <div id="" class="btn box">가입</div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
